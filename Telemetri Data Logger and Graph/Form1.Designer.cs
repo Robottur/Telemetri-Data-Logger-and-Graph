@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -41,12 +44,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ComboBoxPort = new System.Windows.Forms.ComboBox();
             this.ButtonScanPort = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.PictureBoxRecordStatus = new System.Windows.Forms.PictureBox();
-            this.ButtonClear = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ButtonStopRecording = new System.Windows.Forms.Button();
-            this.ButtonStartRecording = new System.Windows.Forms.Button();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.modbus_master_clock = new System.Windows.Forms.Timer(this.components);
             this.BMS_Voltage1_Label = new System.Windows.Forms.Label();
@@ -217,7 +214,6 @@
             this.label85 = new System.Windows.Forms.Label();
             this.label87 = new System.Windows.Forms.Label();
             this.Roll = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.PV_T1_Label = new System.Windows.Forms.Label();
@@ -240,16 +236,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.Data_Time_Label = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.graph_clock = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxConnectionStatue)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxRecordStatus)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -358,66 +355,6 @@
             this.ButtonScanPort.Text = "Scan Port";
             this.ButtonScanPort.UseVisualStyleBackColor = true;
             this.ButtonScanPort.Click += new System.EventHandler(this.ButtonScanPort_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.PictureBoxRecordStatus);
-            this.groupBox3.Controls.Add(this.ButtonClear);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.ButtonStopRecording);
-            this.groupBox3.Controls.Add(this.ButtonStartRecording);
-            this.groupBox3.Location = new System.Drawing.Point(776, 137);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(377, 89);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Record";
-            // 
-            // PictureBoxRecordStatus
-            // 
-            this.PictureBoxRecordStatus.Image = global::Telemetri_Data_Logger_and_Graph.Properties.Resources.red;
-            this.PictureBoxRecordStatus.Location = new System.Drawing.Point(336, 0);
-            this.PictureBoxRecordStatus.Name = "PictureBoxRecordStatus";
-            this.PictureBoxRecordStatus.Size = new System.Drawing.Size(13, 13);
-            this.PictureBoxRecordStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PictureBoxRecordStatus.TabIndex = 6;
-            this.PictureBoxRecordStatus.TabStop = false;
-            // 
-            // ButtonClear
-            // 
-            this.ButtonClear.Location = new System.Drawing.Point(96, 57);
-            this.ButtonClear.Name = "ButtonClear";
-            this.ButtonClear.Size = new System.Drawing.Size(191, 23);
-            this.ButtonClear.TabIndex = 2;
-            this.ButtonClear.Text = "Clear DataGridView and Graph";
-            this.ButtonClear.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(279, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Recording";
-            // 
-            // ButtonStopRecording
-            // 
-            this.ButtonStopRecording.Location = new System.Drawing.Point(193, 28);
-            this.ButtonStopRecording.Name = "ButtonStopRecording";
-            this.ButtonStopRecording.Size = new System.Drawing.Size(154, 23);
-            this.ButtonStopRecording.TabIndex = 1;
-            this.ButtonStopRecording.Text = "Stop Recording";
-            this.ButtonStopRecording.UseVisualStyleBackColor = true;
-            // 
-            // ButtonStartRecording
-            // 
-            this.ButtonStartRecording.Location = new System.Drawing.Point(23, 28);
-            this.ButtonStartRecording.Name = "ButtonStartRecording";
-            this.ButtonStartRecording.Size = new System.Drawing.Size(164, 23);
-            this.ButtonStartRecording.TabIndex = 0;
-            this.ButtonStartRecording.Text = "Start Recording";
-            this.ButtonStartRecording.UseVisualStyleBackColor = true;
             // 
             // modbus_master_clock
             // 
@@ -2103,24 +2040,20 @@
             this.Roll.TabIndex = 101;
             this.Roll.Text = "Roll";
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // chart1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
-            this.chart1.Location = new System.Drawing.Point(750, 275);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
+            this.chart1.Location = new System.Drawing.Point(700, 141);
             this.chart1.Name = "chart1";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
-            this.chart1.Size = new System.Drawing.Size(413, 268);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
+            this.chart1.Size = new System.Drawing.Size(463, 204);
             this.chart1.TabIndex = 117;
             this.chart1.Text = "chart1";
             // 
@@ -2329,11 +2262,33 @@
             this.label3.TabIndex = 132;
             this.label3.Text = "Data Time:";
             // 
+            // chart2
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart2.Legends.Add(legend4);
+            this.chart2.Location = new System.Drawing.Point(700, 351);
+            this.chart2.Name = "chart2";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series4.Legend = "Legend1";
+            series4.Name = "Series2";
+            this.chart2.Series.Add(series4);
+            this.chart2.Size = new System.Drawing.Size(463, 195);
+            this.chart2.TabIndex = 133;
+            this.chart2.Text = "chart2";
+            // 
+            // graph_clock
+            // 
+            this.graph_clock.Tick += new System.EventHandler(this.graph_clock_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1330, 547);
+            this.ClientSize = new System.Drawing.Size(1184, 557);
+            this.Controls.Add(this.chart2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Data_Time_Label);
             this.Controls.Add(this.groupBox8);
@@ -2342,7 +2297,6 @@
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -2350,9 +2304,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxConnectionStatue)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxRecordStatus)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -2364,6 +2315,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2380,12 +2332,6 @@
         private System.Windows.Forms.Button ButtonDisconnect;
         private System.Windows.Forms.Button ButtonConnect;
         private System.Windows.Forms.PictureBox PictureBoxConnectionStatue;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.PictureBox PictureBoxRecordStatus;
-        private System.Windows.Forms.Button ButtonClear;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button ButtonStopRecording;
-        private System.Windows.Forms.Button ButtonStartRecording;
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.Timer modbus_master_clock;
         private System.Windows.Forms.Label BMS_Voltage1_Label;
@@ -2536,7 +2482,6 @@
         private System.Windows.Forms.Label label85;
         private System.Windows.Forms.Label label87;
         private System.Windows.Forms.Label Roll;
-        private System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label AccelZ_Label;
         private System.Windows.Forms.Label AccelX_Label;
@@ -2579,6 +2524,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label Data_Time_Label;
         private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.Timer graph_clock;
     }
 }
 

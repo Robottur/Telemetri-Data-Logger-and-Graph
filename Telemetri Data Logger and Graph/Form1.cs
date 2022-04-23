@@ -13,7 +13,8 @@ namespace Telemetri_Data_Logger_and_Graph
         public int get_i = 0;
         public float tempdata;
         string zaman;
-
+        int rf_id;
+        
 
         DataClass Data = new DataClass();
         //List<string> DataList = new List<string>();
@@ -613,10 +614,6 @@ namespace Telemetri_Data_Logger_and_Graph
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
         private void Form1_Load_1(object sender, EventArgs e)
         {
             string[] ports = SerialPort.GetPortNames();
@@ -659,6 +656,7 @@ namespace Telemetri_Data_Logger_and_Graph
                 ButtonConnect.Enabled = false;
                 ButtonDisconnect.Enabled = true;
                 ButtonScanPort.Enabled = false;
+                graph_clock.Start();
 
             }
             catch(Exception err)
@@ -679,22 +677,11 @@ namespace Telemetri_Data_Logger_and_Graph
                 ButtonConnect.Enabled = true;
                 ButtonDisconnect.Enabled = false;
                 ButtonScanPort.Enabled = true;
+                graph_clock.Stop();
             }
 
         }
 
-        private void ShowData()
-        {
-            
-            float tempdata;
-            tempdata = (float)BitConverter.ToInt32(get_data, 0);
-            //LabelData1.Text = tempdata.ToString();
-            
-            /*
-            LabelData1.Text = DataList[DataNumber-1];
-            SaveData();
-            */
-        }
 
         private void modbus_master_clock_Tick(object sender, EventArgs e)
         {
@@ -718,57 +705,45 @@ namespace Telemetri_Data_Logger_and_Graph
                     Ek_Veri();
                 }
                 //CRC check gir (default)
-                //
+
+                rf_id = BitConverter.ToInt16(get_data, 4);
+
                 if (!CRC_Check()) return;
-                else if (get_data[4] == 6)
+                else if (rf_id == 6)
                 {
                     Ana_module_veri();
                 }
                 //
-                else if (get_data[4] == 70 || get_data[4] == 72 || get_data[4] == 74 || get_data[4] == 76)
+                else if (rf_id == 70 || rf_id == 72 || rf_id == 74 || rf_id == 76)
                 {
                     BMS_Veri();
                 }
                 Yazdir();
-
-
-                 
-                /*
-                Data.battery_temp1 = get_data[2].ToString();
-                LabelData1.Text = Data.battery_temp1;
-                */
             }
-
-            /*
-            string TempData = serialPort1.ReadExisting();
-            DataFilter(TempData);
-            */
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void graph_clock_Tick(object sender, EventArgs e)
         {
-            /*
-            if (mot_current_int <= 1000 && mot_current_int >= 0)
-            {
-                label1.Text = mot_current + "A";
-                zaman = DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString();
+            //Graph of the motor current
+            chart1.ChartAreas[0].AxisY.Minimum = 0;
+            chart1.ChartAreas[0].AxisY.Maximum = 60;
 
-                this.chart1.Series[0].Points.AddXY(zaman, mot_current);
-
-            }
-            */
-            /*
-            if (Data.Speed <= 1700 && Data.Speed >= 0)
+            if (Data.Motor_current <= 1000 && Data.Motor_current >= 0)
             {
                 zaman = DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString();
-                this.chart1.Series[0].Points.AddXY(zaman, Data.Speed);
+                this.chart1.Series[0].Points.AddXY(zaman, Data.Motor_current.ToString());
 
             }
-            */
-            zaman = DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString();
-            this.chart1.Series[0].Points.AddXY(zaman, Data.Battery_voltage);
+            //Graph of the speed
+            chart2.ChartAreas[0].AxisY.Minimum = 0;
+            chart2.ChartAreas[0].AxisY.Maximum = 80;
+
+            if (Data.Speed <= 1000 && Data.Speed >= 0)
+            {
+                zaman = DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString();
+                this.chart2.Series[0].Points.AddXY(zaman, Data.Speed.ToString());
+
+            }
         }
-
-        
     }
 }
