@@ -500,7 +500,11 @@ namespace Telemetri_Data_Logger_and_Graph
 
         private void Yazdir()
         {
-            
+
+            String DataDate = DateTime.Now.ToString();
+            Data_Time_Label.Text = DataDate;
+
+
             BattCurrent_Label.Text = Data.Battery_current.ToString() + " A";
             BattEnergy_Label.Text = Data.Battery_energy.ToString() + " W";
             BattVoltage_Label.Text = Data.Battery_voltage.ToString() + " V";
@@ -632,6 +636,12 @@ namespace Telemetri_Data_Logger_and_Graph
             FilePath += @"\Log\" + yy + "." + mn + "." + dy + ".txt";
         }
 
+        private void ButtonScanPort_Click(object sender, EventArgs e)
+        {
+            ComboBoxPort.Items.Clear();
+            string[] ports = SerialPort.GetPortNames();
+            ComboBoxPort.Items.AddRange(ports);
+        }
 
         private void ButtonConnect_Click(object sender, EventArgs e)
         {
@@ -759,11 +769,6 @@ namespace Telemetri_Data_Logger_and_Graph
             this.chart1.Series[0].Points.AddXY(zaman, Data.Battery_voltage);
         }
 
-        private void ButtonScanPort_Click(object sender, EventArgs e)
-        {
-            ComboBoxPort.Items.Clear();
-            string[] ports = SerialPort.GetPortNames();
-            ComboBoxPort.Items.AddRange(ports);
-        }
+        
     }
 }

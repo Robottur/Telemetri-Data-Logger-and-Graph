@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.PictureBoxConnectionStatue = new System.Windows.Forms.PictureBox();
             this.LabelStatus = new System.Windows.Forms.Label();
@@ -238,6 +238,8 @@
             this.label112 = new System.Windows.Forms.Label();
             this.Motor_Current_Label = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.Data_Time_Label = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxConnectionStatue)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -1860,7 +1862,7 @@
             this.groupBox7.Controls.Add(this.label85);
             this.groupBox7.Controls.Add(this.label87);
             this.groupBox7.Controls.Add(this.Roll);
-            this.groupBox7.Location = new System.Drawing.Point(531, 177);
+            this.groupBox7.Location = new System.Drawing.Point(531, 168);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(163, 192);
             this.groupBox7.TabIndex = 116;
@@ -2107,18 +2109,18 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(732, 241);
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
+            this.chart1.Location = new System.Drawing.Point(750, 275);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(431, 302);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chart1.Series.Add(series4);
+            this.chart1.Size = new System.Drawing.Size(413, 268);
             this.chart1.TabIndex = 117;
             this.chart1.Text = "chart1";
             // 
@@ -2140,7 +2142,7 @@
             this.groupBox8.Controls.Add(this.label110);
             this.groupBox8.Controls.Add(this.label111);
             this.groupBox8.Controls.Add(this.label112);
-            this.groupBox8.Location = new System.Drawing.Point(531, 403);
+            this.groupBox8.Location = new System.Drawing.Point(531, 377);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(163, 132);
             this.groupBox8.TabIndex = 130;
@@ -2309,11 +2311,31 @@
             this.label4.TabIndex = 115;
             this.label4.Text = "Motor Current";
             // 
+            // Data_Time_Label
+            // 
+            this.Data_Time_Label.AutoSize = true;
+            this.Data_Time_Label.Location = new System.Drawing.Point(590, 522);
+            this.Data_Time_Label.Name = "Data_Time_Label";
+            this.Data_Time_Label.Size = new System.Drawing.Size(35, 13);
+            this.Data_Time_Label.TabIndex = 131;
+            this.Data_Time_Label.Text = "label3";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(534, 522);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.TabIndex = 132;
+            this.label3.Text = "Data Time:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1330, 547);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.Data_Time_Label);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.groupBox7);
@@ -2343,6 +2365,7 @@
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -2554,6 +2577,8 @@
         private System.Windows.Forms.Label label112;
         private System.Windows.Forms.Label Motor_Current_Label;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label Data_Time_Label;
+        private System.Windows.Forms.Label label3;
     }
 }
 
