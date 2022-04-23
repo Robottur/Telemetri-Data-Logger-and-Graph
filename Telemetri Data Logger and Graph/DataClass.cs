@@ -17,7 +17,8 @@ namespace Telemetri_Data_Logger_and_Graph
         public float Battery_voltage;
         public float Speed;
         public float Cabin_Temp;
-        public float Total_current; //Battery current + PV Current
+        //public float Total_current; //Battery current + PV Current
+        public float Motor_current; //Battery current + PV Current
 
 
         public float Yaw;

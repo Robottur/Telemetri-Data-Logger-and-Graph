@@ -424,7 +424,7 @@ namespace Telemetri_Data_Logger_and_Graph
             //Cabin temp
             tempdata = msb_lsb_düzenleme(20);
             Data.Cabin_Temp = tempdata / 10;
-
+            /*
             //Total used current
             tempdata = msb_lsb_düzenleme(22);
             if (tempdata > 20000)
@@ -435,6 +435,11 @@ namespace Telemetri_Data_Logger_and_Graph
             {
                 Data.Total_current = tempdata / 10;
             }
+            */
+
+            //Hesaplamalı işlemler
+            //Motor_Current
+            Data.Motor_current = Data.Battery_current + Data.PV_current;
 
         }
         
@@ -495,18 +500,16 @@ namespace Telemetri_Data_Logger_and_Graph
 
         private void Yazdir()
         {
-            Yaw_Label.Text = Data.Yaw.ToString();
-            Pitch_Label.Text = Data.Pitch.ToString();
-
-
-            BattCurrent_Label.Text = Data.Battery_current.ToString();
-            BattEnergy_Label.Text = Data.Battery_energy.ToString();
-            BattVoltage_Label.Text = Data.Battery_voltage.ToString();
-            PVCurrent_Label.Text = Data.PV_current.ToString();
-            PVEnergy_Label.Text = Data.PV_energy.ToString();
-            Speed_Label.Text = Data.Speed.ToString();
-            CabinTemp_Label.Text = Data.Cabin_Temp.ToString();
-            TotalCurrent_Label.Text = Data.Total_current.ToString();
+            
+            BattCurrent_Label.Text = Data.Battery_current.ToString() + " A";
+            BattEnergy_Label.Text = Data.Battery_energy.ToString() + " W";
+            BattVoltage_Label.Text = Data.Battery_voltage.ToString() + " V";
+            PVCurrent_Label.Text = Data.PV_current.ToString() + " A";
+            PVEnergy_Label.Text = Data.PV_energy.ToString() + " W";
+            Speed_Label.Text = Data.Speed.ToString() + " km/h";
+            CabinTemp_Label.Text = Data.Cabin_Temp.ToString() + " °C";
+            //TotalCurrent_Label.Text = Data.Total_current.ToString() + " A";
+            Motor_Current_Label.Text = Data.Motor_current.ToString() + " A";
 
             BMS_Voltage1_Label.Text = Data.battery_voltage1.ToString();
             BMS_Voltage2_Label.Text = Data.battery_voltage2.ToString();
@@ -542,48 +545,59 @@ namespace Telemetri_Data_Logger_and_Graph
             BMS_Voltage32_Label.Text = Data.battery_voltage32.ToString();
 
 
-            BattTemp1_Label.Text = Data.battery_temp1.ToString();
-            BattTemp2_Label.Text = Data.battery_temp2.ToString();
-            BattTemp3_Label.Text = Data.battery_temp3.ToString();
-            BattTemp4_Label.Text = Data.battery_temp4.ToString();
-            BattTemp5_Label.Text = Data.battery_temp5.ToString();
-            BattTemp6_Label.Text = Data.battery_temp6.ToString();
-            BattTemp7_Label.Text = Data.battery_temp7.ToString();
-            BattTemp8_Label.Text = Data.battery_temp8.ToString();
-            BattTemp9_Label.Text = Data.battery_temp9.ToString();
-            BattTemp10_Label.Text = Data.battery_temp10.ToString();
-            BattTemp11_Label.Text = Data.battery_temp11.ToString();
-            BattTemp12_Label.Text = Data.battery_temp12.ToString();
-            BattTemp13_Label.Text = Data.battery_temp13.ToString();
-            BattTemp14_Label.Text = Data.battery_temp14.ToString();
-            BattTemp15_Label.Text = Data.battery_temp15.ToString();
-            BattTemp16_Label.Text = Data.battery_temp16.ToString();
-            BattTemp17_Label.Text = Data.battery_temp17.ToString();
-            BattTemp18_Label.Text = Data.battery_temp18.ToString();
-            BattTemp19_Label.Text = Data.battery_temp19.ToString();
-            BattTemp20_Label.Text = Data.battery_temp20.ToString();
-            BattTemp21_Label.Text = Data.battery_temp21.ToString();
-            BattTemp22_Label.Text = Data.battery_temp22.ToString();
-            BattTemp23_Label.Text = Data.battery_temp23.ToString();
-            BattTemp24_Label.Text = Data.battery_temp24.ToString();
-            BattTemp25_Label.Text = Data.battery_temp25.ToString();
-            BattTemp26_Label.Text = Data.battery_temp26.ToString();
-            BattTemp27_Label.Text = Data.battery_temp27.ToString();
-            BattTemp28_Label.Text = Data.battery_temp28.ToString();
-            BattTemp29_Label.Text = Data.battery_temp29.ToString();
-            BattTemp30_Label.Text = Data.battery_temp30.ToString();
+            BattTemp1_Label.Text = Data.battery_temp1.ToString() + " °C";
+            BattTemp2_Label.Text = Data.battery_temp2.ToString() + " °C";
+            BattTemp3_Label.Text = Data.battery_temp3.ToString() + " °C";
+            BattTemp4_Label.Text = Data.battery_temp4.ToString() + " °C";
+            BattTemp5_Label.Text = Data.battery_temp5.ToString() + " °C";
+            BattTemp6_Label.Text = Data.battery_temp6.ToString() + " °C";
+            BattTemp7_Label.Text = Data.battery_temp7.ToString() + " °C";
+            BattTemp8_Label.Text = Data.battery_temp8.ToString() + " °C";
+            BattTemp9_Label.Text = Data.battery_temp9.ToString() + " °C";
+            BattTemp10_Label.Text = Data.battery_temp10.ToString() + " °C";
+            BattTemp11_Label.Text = Data.battery_temp11.ToString() + " °C";
+            BattTemp12_Label.Text = Data.battery_temp12.ToString() + " °C";
+            BattTemp13_Label.Text = Data.battery_temp13.ToString() + " °C";
+            BattTemp14_Label.Text = Data.battery_temp14.ToString() + " °C";
+            BattTemp15_Label.Text = Data.battery_temp15.ToString() + " °C";
+            BattTemp16_Label.Text = Data.battery_temp16.ToString() + " °C";
+            BattTemp17_Label.Text = Data.battery_temp17.ToString() + " °C";
+            BattTemp18_Label.Text = Data.battery_temp18.ToString() + " °C";
+            BattTemp19_Label.Text = Data.battery_temp19.ToString() + " °C";
+            BattTemp20_Label.Text = Data.battery_temp20.ToString() + " °C";
+            BattTemp21_Label.Text = Data.battery_temp21.ToString() + " °C";
+            BattTemp22_Label.Text = Data.battery_temp22.ToString() + " °C";
+            BattTemp23_Label.Text = Data.battery_temp23.ToString() + " °C";
+            BattTemp24_Label.Text = Data.battery_temp24.ToString() + " °C";
+            BattTemp25_Label.Text = Data.battery_temp25.ToString() + " °C";
+            BattTemp26_Label.Text = Data.battery_temp26.ToString() + " °C";
+            BattTemp27_Label.Text = Data.battery_temp27.ToString() + " °C";
+            BattTemp28_Label.Text = Data.battery_temp28.ToString() + " °C";
+            BattTemp29_Label.Text = Data.battery_temp29.ToString() + " °C";
+            BattTemp30_Label.Text = Data.battery_temp30.ToString() + " °C";
 
-            GyroX_Label.Text = Data.Gyro_x.ToString();
-            GyroY_Label.Text = Data.Gyro_y.ToString();
-            GyroZ_Label.Text= Data.Gyro_z.ToString();
-            AccelX_Label.Text = Data.Acc_x.ToString();
-            AccelY_Label.Text = Data.Acc_y.ToString();
-            AccelZ_Label.Text = Data.Acc_z.ToString();
-            Longitude_Label.Text = Data.Longitude.ToString();
-            Latitude_Label.Text = Data.Latitude.ToString();
-            GPS_Speed_Label.Text = Data.GPS_speed.ToString();
-            GPS_Height_Label.Text = Data.GPS_height.ToString();
+            Yaw_Label.Text = Data.Yaw.ToString("n2") + " deg";
+            Pitch_Label.Text = Data.Pitch.ToString("n2") + " deg";
+            Roll_Label.Text= Data.Roll.ToString("n2") + " deg";
 
+            GyroX_Label.Text = Data.Gyro_x.ToString("n2") + " deg/s";
+            GyroY_Label.Text = Data.Gyro_y.ToString("n2") + " deg/s";
+            GyroZ_Label.Text= Data.Gyro_z.ToString("n2") + " deg/s";
+            AccelX_Label.Text = Data.Acc_x.ToString("n2") + " G";
+            AccelY_Label.Text = Data.Acc_y.ToString("n2") + " G";
+            AccelZ_Label.Text = Data.Acc_z.ToString("n2") + " G";
+            Longitude_Label.Text = Data.Longitude.ToString("n2");
+            Latitude_Label.Text = Data.Latitude.ToString("n2");
+            GPS_Speed_Label.Text = Data.GPS_speed.ToString("n2") + " km/h";
+            GPS_Height_Label.Text = Data.GPS_height.ToString("n2") + " m";
+
+            MPPT_T1_Label.Text = Data.MPPT_temp1.ToString() + " °C";
+            MPPT_T2_Label.Text = Data.MPPT_temp2.ToString() + " °C";
+            Motor_T1_Label.Text= Data.Motor_temp1.ToString() + " °C";
+            Motor_T2_Label.Text= Data.Motor_temp2.ToString() + " °C";
+            Motor_T3_Label.Text = Data.Motor_temp3.ToString() + " °C";
+            PV_T1_Label.Text = Data.PV_temp1.ToString() + " °C";
+            PV_T2_Label.Text = Data.PV_temp2.ToString() + " °C";
 
         }
        
@@ -603,6 +617,8 @@ namespace Telemetri_Data_Logger_and_Graph
         {
             string[] ports = SerialPort.GetPortNames();
             ComboBoxPort.Items.AddRange(ports);
+
+            ButtonDisconnect.Enabled = false;
 
             // Tarihi dosya adına işlemek için tarih verisi alınır
             String sDate = DateTime.Now.ToString();
@@ -632,6 +648,7 @@ namespace Telemetri_Data_Logger_and_Graph
                 LabelStatus.Text = "Status: Connected";
                 ButtonConnect.Enabled = false;
                 ButtonDisconnect.Enabled = true;
+                ButtonScanPort.Enabled = false;
 
             }
             catch(Exception err)
@@ -651,6 +668,7 @@ namespace Telemetri_Data_Logger_and_Graph
                 LabelStatus.Text = "Status: Disconnected";
                 ButtonConnect.Enabled = true;
                 ButtonDisconnect.Enabled = false;
+                ButtonScanPort.Enabled = true;
             }
 
         }
@@ -739,6 +757,13 @@ namespace Telemetri_Data_Logger_and_Graph
             */
             zaman = DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString();
             this.chart1.Series[0].Points.AddXY(zaman, Data.Battery_voltage);
+        }
+
+        private void ButtonScanPort_Click(object sender, EventArgs e)
+        {
+            ComboBoxPort.Items.Clear();
+            string[] ports = SerialPort.GetPortNames();
+            ComboBoxPort.Items.AddRange(ports);
         }
     }
 }

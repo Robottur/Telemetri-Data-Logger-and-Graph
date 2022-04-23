@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.PictureBoxConnectionStatue = new System.Windows.Forms.PictureBox();
             this.LabelStatus = new System.Windows.Forms.Label();
@@ -176,7 +176,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.Speed_Label = new System.Windows.Forms.Label();
-            this.TotalCurrent_Label = new System.Windows.Forms.Label();
             this.PVEnergy_Label = new System.Windows.Forms.Label();
             this.BattVoltage_Label = new System.Windows.Forms.Label();
             this.CabinTemp_Label = new System.Windows.Forms.Label();
@@ -184,7 +183,6 @@
             this.BattEnergy_Label = new System.Windows.Forms.Label();
             this.BattCurrent_Label = new System.Windows.Forms.Label();
             this.label76 = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
             this.label78 = new System.Windows.Forms.Label();
             this.label79 = new System.Windows.Forms.Label();
             this.label80 = new System.Windows.Forms.Label();
@@ -238,6 +236,8 @@
             this.label110 = new System.Windows.Forms.Label();
             this.label111 = new System.Windows.Forms.Label();
             this.label112 = new System.Windows.Forms.Label();
+            this.Motor_Current_Label = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxConnectionStatue)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -355,6 +355,7 @@
             this.ButtonScanPort.TabIndex = 0;
             this.ButtonScanPort.Text = "Scan Port";
             this.ButtonScanPort.UseVisualStyleBackColor = true;
+            this.ButtonScanPort.Click += new System.EventHandler(this.ButtonScanPort_Click);
             // 
             // groupBox3
             // 
@@ -1689,15 +1690,6 @@
             this.Speed_Label.TabIndex = 112;
             this.Speed_Label.Text = "T6";
             // 
-            // TotalCurrent_Label
-            // 
-            this.TotalCurrent_Label.AutoSize = true;
-            this.TotalCurrent_Label.Location = new System.Drawing.Point(99, 111);
-            this.TotalCurrent_Label.Name = "TotalCurrent_Label";
-            this.TotalCurrent_Label.Size = new System.Drawing.Size(20, 13);
-            this.TotalCurrent_Label.TabIndex = 114;
-            this.TotalCurrent_Label.Text = "T8";
-            // 
             // PVEnergy_Label
             // 
             this.PVEnergy_Label.AutoSize = true;
@@ -1761,15 +1753,6 @@
             this.label76.TabIndex = 104;
             this.label76.Text = "Speed";
             // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(15, 111);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(68, 13);
-            this.label77.TabIndex = 106;
-            this.label77.Text = "Total Current";
-            // 
             // label78
             // 
             this.label78.AutoSize = true;
@@ -1826,8 +1809,9 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.Motor_Current_Label);
+            this.groupBox6.Controls.Add(this.label4);
             this.groupBox6.Controls.Add(this.Speed_Label);
-            this.groupBox6.Controls.Add(this.TotalCurrent_Label);
             this.groupBox6.Controls.Add(this.PVEnergy_Label);
             this.groupBox6.Controls.Add(this.BattVoltage_Label);
             this.groupBox6.Controls.Add(this.CabinTemp_Label);
@@ -1836,7 +1820,6 @@
             this.groupBox6.Controls.Add(this.BattCurrent_Label);
             this.groupBox6.Controls.Add(this.label76);
             this.groupBox6.Controls.Add(this.label82);
-            this.groupBox6.Controls.Add(this.label77);
             this.groupBox6.Controls.Add(this.label83);
             this.groupBox6.Controls.Add(this.label78);
             this.groupBox6.Controls.Add(this.label81);
@@ -1844,7 +1827,7 @@
             this.groupBox6.Controls.Add(this.label80);
             this.groupBox6.Location = new System.Drawing.Point(531, 22);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(163, 137);
+            this.groupBox6.Size = new System.Drawing.Size(163, 131);
             this.groupBox6.TabIndex = 115;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "groupBox6";
@@ -1877,7 +1860,7 @@
             this.groupBox7.Controls.Add(this.label85);
             this.groupBox7.Controls.Add(this.label87);
             this.groupBox7.Controls.Add(this.Roll);
-            this.groupBox7.Location = new System.Drawing.Point(531, 181);
+            this.groupBox7.Location = new System.Drawing.Point(531, 177);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(163, 192);
             this.groupBox7.TabIndex = 116;
@@ -2124,17 +2107,17 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(732, 241);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(431, 302);
             this.chart1.TabIndex = 117;
             this.chart1.Text = "chart1";
@@ -2307,6 +2290,24 @@
             this.label112.Size = new System.Drawing.Size(56, 13);
             this.label112.TabIndex = 101;
             this.label112.Text = "MPPT T.2";
+            // 
+            // Motor_Current_Label
+            // 
+            this.Motor_Current_Label.AutoSize = true;
+            this.Motor_Current_Label.Location = new System.Drawing.Point(99, 110);
+            this.Motor_Current_Label.Name = "Motor_Current_Label";
+            this.Motor_Current_Label.Size = new System.Drawing.Size(20, 13);
+            this.Motor_Current_Label.TabIndex = 116;
+            this.Motor_Current_Label.Text = "T8";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 110);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 13);
+            this.label4.TabIndex = 115;
+            this.label4.Text = "Motor Current";
             // 
             // Form1
             // 
@@ -2491,7 +2492,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label Speed_Label;
-        private System.Windows.Forms.Label TotalCurrent_Label;
         private System.Windows.Forms.Label PVEnergy_Label;
         private System.Windows.Forms.Label BattVoltage_Label;
         private System.Windows.Forms.Label CabinTemp_Label;
@@ -2499,7 +2499,6 @@
         private System.Windows.Forms.Label BattEnergy_Label;
         private System.Windows.Forms.Label BattCurrent_Label;
         private System.Windows.Forms.Label label76;
-        private System.Windows.Forms.Label label77;
         private System.Windows.Forms.Label label78;
         private System.Windows.Forms.Label label79;
         private System.Windows.Forms.Label label80;
@@ -2553,6 +2552,8 @@
         private System.Windows.Forms.Label label110;
         private System.Windows.Forms.Label label111;
         private System.Windows.Forms.Label label112;
+        private System.Windows.Forms.Label Motor_Current_Label;
+        private System.Windows.Forms.Label label4;
     }
 }
 
