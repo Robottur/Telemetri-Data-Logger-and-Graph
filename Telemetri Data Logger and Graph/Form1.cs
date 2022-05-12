@@ -1,9 +1,10 @@
-﻿using System;
+﻿using LiveCharts.Wpf;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Ports;
 using System.Windows.Forms;
-
+using System.Windows.Media;
 
 namespace Telemetri_Data_Logger_and_Graph
 {
@@ -14,7 +15,8 @@ namespace Telemetri_Data_Logger_and_Graph
         public float tempdata;
         string zaman;
         int rf_id;
-        
+        float graph1_interval;
+        float graphstarttime;
 
         DataClass Data = new DataClass();
         //List<string> DataList = new List<string>();
@@ -656,6 +658,7 @@ namespace Telemetri_Data_Logger_and_Graph
                 ButtonConnect.Enabled = false;
                 ButtonDisconnect.Enabled = true;
                 ButtonScanPort.Enabled = false;
+                //graphstarttime = DateTime.Now
                 graph_clock.Start();
 
             }
@@ -724,13 +727,43 @@ namespace Telemetri_Data_Logger_and_Graph
 
         private void graph_clock_Tick(object sender, EventArgs e)
         {
+            cartesianChart1.Series.Add(new LineSeries
+            {
+                Values = new LiveCharts.ChartValues<double> { 3, 4, 6, 3, 2, 6 },
+                StrokeThickness = 4,
+                StrokeDashArray = new System.Windows.Media.DoubleCollection(50),
+                Stroke = new SolidColorBrush(System.Windows.Media.Color.FromRgb(107, 185, 79)),
+                Fill = Brushes.Transparent,
+                LineSmoothness = 0,
+                PointGeometry = null
+
+            }
+            );
+
+            cartesianChart1.Series.Add(new LineSeries
+            {
+                Values = new LiveCharts.ChartValues<double> { 5, 3, 5, 7, 3, 9},
+                StrokeThickness = 2,
+                StrokeDashArray = new System.Windows.Media.DoubleCollection(50),
+                Stroke = new SolidColorBrush(System.Windows.Media.Color.FromRgb(107, 185, 79)),
+                Fill = Brushes.Transparent,
+                LineSmoothness = 0,
+                PointGeometry = null
+
+            }
+            );
+
+
+            /*
             //Graph of the motor current
             chart1.ChartAreas[0].AxisY.Minimum = 0;
             chart1.ChartAreas[0].AxisY.Maximum = 60;
 
+            chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.Second/600 - graph1_interval;
+
             if (Data.Motor_current <= 1000 && Data.Motor_current >= 0)
             {
-                zaman = DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString();
+                zaman = DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString()+":"+DateTime.Now.Second.ToString();
                 this.chart1.Series[0].Points.AddXY(zaman, Data.Motor_current.ToString());
 
             }
@@ -744,6 +777,17 @@ namespace Telemetri_Data_Logger_and_Graph
                 this.chart2.Series[0].Points.AddXY(zaman, Data.Speed.ToString());
 
             }
+            */
+        }
+
+        private void Button1Minute_Click(object sender, EventArgs e)
+        {
+            graph1_interval = (float)600;
+        }
+
+        private void Button30Seccond_Click(object sender, EventArgs e)
+        {
+            graph1_interval = (float)300;
         }
     }
 }

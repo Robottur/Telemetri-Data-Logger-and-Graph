@@ -113,6 +113,8 @@
             this.label44 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.BattTemp30_Label = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Data_Time_Label = new System.Windows.Forms.Label();
             this.BattTemp29_Label = new System.Windows.Forms.Label();
             this.BattTemp28_Label = new System.Windows.Forms.Label();
             this.BattTemp27_Label = new System.Windows.Forms.Label();
@@ -187,6 +189,8 @@
             this.label82 = new System.Windows.Forms.Label();
             this.label83 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.Motor_Current_Label = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.GPS_Height_Label = new System.Windows.Forms.Label();
             this.GPS_Speed_Label = new System.Windows.Forms.Label();
@@ -232,12 +236,11 @@
             this.label110 = new System.Windows.Forms.Label();
             this.label111 = new System.Windows.Forms.Label();
             this.label112 = new System.Windows.Forms.Label();
-            this.Motor_Current_Label = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.Data_Time_Label = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.graph_clock = new System.Windows.Forms.Timer(this.components);
+            this.Button1Minute = new System.Windows.Forms.Button();
+            this.Button30Seccond = new System.Windows.Forms.Button();
+            this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxConnectionStatue)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -610,7 +613,7 @@
             this.groupBox4.Controls.Add(this.label44);
             this.groupBox4.Location = new System.Drawing.Point(38, 13);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(305, 522);
+            this.groupBox4.Size = new System.Drawing.Size(305, 475);
             this.groupBox4.TabIndex = 26;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Battery Voltages";
@@ -1014,6 +1017,8 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.BattTemp30_Label);
+            this.groupBox5.Controls.Add(this.label3);
+            this.groupBox5.Controls.Add(this.Data_Time_Label);
             this.groupBox5.Controls.Add(this.BattTemp29_Label);
             this.groupBox5.Controls.Add(this.BattTemp28_Label);
             this.groupBox5.Controls.Add(this.BattTemp27_Label);
@@ -1075,7 +1080,7 @@
             this.groupBox5.Controls.Add(this.label18);
             this.groupBox5.Location = new System.Drawing.Point(362, 20);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(153, 515);
+            this.groupBox5.Size = new System.Drawing.Size(153, 468);
             this.groupBox5.TabIndex = 52;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Battery Temperatures";
@@ -1088,6 +1093,24 @@
             this.BattTemp30_Label.Size = new System.Drawing.Size(26, 13);
             this.BattTemp30_Label.TabIndex = 98;
             this.BattTemp30_Label.Text = "T30";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(4, 451);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.TabIndex = 132;
+            this.label3.Text = "Data Time:";
+            // 
+            // Data_Time_Label
+            // 
+            this.Data_Time_Label.AutoSize = true;
+            this.Data_Time_Label.Location = new System.Drawing.Point(60, 451);
+            this.Data_Time_Label.Name = "Data_Time_Label";
+            this.Data_Time_Label.Size = new System.Drawing.Size(35, 13);
+            this.Data_Time_Label.TabIndex = 131;
+            this.Data_Time_Label.Text = "label3";
             // 
             // BattTemp29_Label
             // 
@@ -1771,6 +1794,24 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "groupBox6";
             // 
+            // Motor_Current_Label
+            // 
+            this.Motor_Current_Label.AutoSize = true;
+            this.Motor_Current_Label.Location = new System.Drawing.Point(99, 110);
+            this.Motor_Current_Label.Name = "Motor_Current_Label";
+            this.Motor_Current_Label.Size = new System.Drawing.Size(20, 13);
+            this.Motor_Current_Label.TabIndex = 116;
+            this.Motor_Current_Label.Text = "T8";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 110);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 13);
+            this.label4.TabIndex = 115;
+            this.label4.Text = "Motor Current";
+            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.GPS_Height_Label);
@@ -1799,7 +1840,7 @@
             this.groupBox7.Controls.Add(this.label85);
             this.groupBox7.Controls.Add(this.label87);
             this.groupBox7.Controls.Add(this.Roll);
-            this.groupBox7.Location = new System.Drawing.Point(531, 168);
+            this.groupBox7.Location = new System.Drawing.Point(531, 155);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(163, 192);
             this.groupBox7.TabIndex = 116;
@@ -2075,7 +2116,7 @@
             this.groupBox8.Controls.Add(this.label110);
             this.groupBox8.Controls.Add(this.label111);
             this.groupBox8.Controls.Add(this.label112);
-            this.groupBox8.Location = new System.Drawing.Point(531, 377);
+            this.groupBox8.Location = new System.Drawing.Point(531, 351);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(163, 132);
             this.groupBox8.TabIndex = 130;
@@ -2226,49 +2267,13 @@
             this.label112.TabIndex = 101;
             this.label112.Text = "MPPT T.2";
             // 
-            // Motor_Current_Label
-            // 
-            this.Motor_Current_Label.AutoSize = true;
-            this.Motor_Current_Label.Location = new System.Drawing.Point(99, 110);
-            this.Motor_Current_Label.Name = "Motor_Current_Label";
-            this.Motor_Current_Label.Size = new System.Drawing.Size(20, 13);
-            this.Motor_Current_Label.TabIndex = 116;
-            this.Motor_Current_Label.Text = "T8";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 110);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 13);
-            this.label4.TabIndex = 115;
-            this.label4.Text = "Motor Current";
-            // 
-            // Data_Time_Label
-            // 
-            this.Data_Time_Label.AutoSize = true;
-            this.Data_Time_Label.Location = new System.Drawing.Point(590, 522);
-            this.Data_Time_Label.Name = "Data_Time_Label";
-            this.Data_Time_Label.Size = new System.Drawing.Size(35, 13);
-            this.Data_Time_Label.TabIndex = 131;
-            this.Data_Time_Label.Text = "label3";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(534, 522);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 13);
-            this.label3.TabIndex = 132;
-            this.label3.Text = "Data Time:";
-            // 
             // chart2
             // 
             chartArea4.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea4);
             legend4.Name = "Legend1";
             this.chart2.Legends.Add(legend4);
-            this.chart2.Location = new System.Drawing.Point(700, 351);
+            this.chart2.Location = new System.Drawing.Point(709, 157);
             this.chart2.Name = "chart2";
             series4.ChartArea = "ChartArea1";
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -2283,14 +2288,43 @@
             // 
             this.graph_clock.Tick += new System.EventHandler(this.graph_clock_Tick);
             // 
+            // Button1Minute
+            // 
+            this.Button1Minute.Location = new System.Drawing.Point(1057, 179);
+            this.Button1Minute.Name = "Button1Minute";
+            this.Button1Minute.Size = new System.Drawing.Size(75, 23);
+            this.Button1Minute.TabIndex = 6;
+            this.Button1Minute.Text = "1 Dakika";
+            this.Button1Minute.UseVisualStyleBackColor = true;
+            this.Button1Minute.Click += new System.EventHandler(this.Button1Minute_Click);
+            // 
+            // Button30Seccond
+            // 
+            this.Button30Seccond.Location = new System.Drawing.Point(1057, 208);
+            this.Button30Seccond.Name = "Button30Seccond";
+            this.Button30Seccond.Size = new System.Drawing.Size(75, 23);
+            this.Button30Seccond.TabIndex = 134;
+            this.Button30Seccond.Text = "30 Saniye";
+            this.Button30Seccond.UseVisualStyleBackColor = true;
+            this.Button30Seccond.Click += new System.EventHandler(this.Button30Seccond_Click);
+            // 
+            // cartesianChart1
+            // 
+            this.cartesianChart1.Location = new System.Drawing.Point(700, 351);
+            this.cartesianChart1.Name = "cartesianChart1";
+            this.cartesianChart1.Size = new System.Drawing.Size(463, 128);
+            this.cartesianChart1.TabIndex = 135;
+            this.cartesianChart1.Text = "cartesianChart1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 557);
+            this.Controls.Add(this.cartesianChart1);
+            this.Controls.Add(this.Button30Seccond);
+            this.Controls.Add(this.Button1Minute);
             this.Controls.Add(this.chart2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.Data_Time_Label);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.groupBox7);
@@ -2317,7 +2351,6 @@
             this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -2526,6 +2559,9 @@
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.Timer graph_clock;
+        private System.Windows.Forms.Button Button1Minute;
+        private System.Windows.Forms.Button Button30Seccond;
+        private LiveCharts.WinForms.CartesianChart cartesianChart1;
     }
 }
 
