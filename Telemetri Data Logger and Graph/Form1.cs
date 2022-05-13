@@ -685,7 +685,7 @@ namespace Telemetri_Data_Logger_and_Graph
 
         }
 
-        
+
         private void modbus_master_clock_Tick(object sender, EventArgs e)
         {
             //Gelen veriler alınır, uzunluğu get_i verinin kendisi get_data'ya atanır
