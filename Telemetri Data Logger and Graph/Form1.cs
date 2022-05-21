@@ -1,10 +1,13 @@
-﻿using LiveCharts.Wpf;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Ports;
 using System.Windows.Forms;
 using System.Windows.Media;
+using LiveCharts;
+using LiveCharts.Configurations;
+using LiveCharts.Wpf;
+
 
 namespace Telemetri_Data_Logger_and_Graph
 {
@@ -13,11 +16,11 @@ namespace Telemetri_Data_Logger_and_Graph
         public byte[] get_data = new byte[1000];
         public int get_i = 0;
         public float tempdata;
-        string zaman;
         int rf_id;
-        float graph1_interval;
-        float graphstarttime;
 
+
+        public ChartValues<MeasureModel> SpeedValues { get; set; }
+        public ChartValues<MeasureModel> MotorCurrent_Values{ get; set; }
         DataClass Data = new DataClass();
         //List<string> DataList = new List<string>();
 
@@ -44,6 +47,90 @@ namespace Telemetri_Data_Logger_and_Graph
         }
         */
 
+        
+        private void Charts_Initiliaze()
+        {
+            var speed_mapper = Mappers.Xy<MeasureModel>()
+                .X(model => model.DateTime.Ticks)   //use DateTime.Ticks as X
+                .Y(model => model.Value);           //use the value property as Y
+
+            //lets save the mapper globally.
+            Charting.For<MeasureModel>(speed_mapper);
+
+            //the ChartValues property will store our values array
+            SpeedValues = new ChartValues<MeasureModel>();
+            Speed_Chart.Series = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Values = SpeedValues,
+                    PointGeometrySize = 3,
+                    StrokeThickness = 2
+                }
+            };
+            Speed_Chart.AxisY.Add(
+            new Axis
+            {
+                MinValue = 0
+            });
+            Speed_Chart.AxisX.Add(new Axis
+            {
+                DisableAnimations = true,
+                LabelFormatter = value => new System.DateTime((long)value).ToString("mm:ss"),
+                Separator = new Separator
+                {
+                    Step = TimeSpan.FromSeconds(20).Ticks
+                }
+            });
+
+
+            var MotorCurrent_mapper = Mappers.Xy<MeasureModel>()
+               .X(model => model.DateTime.Ticks)   //use DateTime.Ticks as X
+               .Y(model => model.Value);           //use the value property as Y
+
+            //lets save the mapper globally.
+            Charting.For<MeasureModel>(MotorCurrent_mapper);
+
+            //the ChartValues property will store our values array
+            MotorCurrent_Values = new ChartValues<MeasureModel>();
+            MotorCurrent_Chart.Series = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Values = MotorCurrent_Values,
+                    PointGeometrySize = 0,
+                    StrokeThickness = 2
+                }
+            };
+            MotorCurrent_Chart.AxisY.Add(
+            new Axis
+            {
+                MinValue = 0
+            });
+            MotorCurrent_Chart.AxisX.Add(new Axis
+            {
+                DisableAnimations = true,
+                LabelFormatter = value => new System.DateTime((long)value).ToString("mm:ss"),
+                Separator = new Separator
+                {
+                    Step = TimeSpan.FromSeconds(20).Ticks
+                }
+            });
+
+
+
+
+            SetAxisLimits(System.DateTime.Now);
+        }
+        private void SetAxisLimits(System.DateTime now)
+        {
+            Speed_Chart.AxisX[0].MaxValue = now.Ticks + TimeSpan.FromSeconds(1).Ticks; // lets force the axis to be 100ms ahead
+            Speed_Chart.AxisX[0].MinValue = now.Ticks - TimeSpan.FromSeconds(300).Ticks; //Sadece son 300 saniyeyi göz önünde bulundurur
+
+            MotorCurrent_Chart.AxisX[0].MaxValue = now.Ticks + TimeSpan.FromSeconds(1).Ticks; // lets force the axis to be 100ms ahead
+            MotorCurrent_Chart.AxisX[0].MinValue = now.Ticks - TimeSpan.FromSeconds(300).Ticks; //Sadece son 300 saniyeyi göz önünde bulundurur
+
+        }
         private bool Start_check()
         {
             // : başa gelecek şelikde byte kaydır.
@@ -622,6 +709,7 @@ namespace Telemetri_Data_Logger_and_Graph
             ComboBoxPort.Items.AddRange(ports);
 
             ButtonDisconnect.Enabled = false;
+            Charts_Initiliaze();
 
             // Tarihi dosya adına işlemek için tarih verisi alınır
             String sDate = DateTime.Now.ToString();
@@ -727,67 +815,40 @@ namespace Telemetri_Data_Logger_and_Graph
 
         private void graph_clock_Tick(object sender, EventArgs e)
         {
-            cartesianChart1.Series.Add(new LineSeries
+            var now = System.DateTime.Now;
+
+            SpeedValues.Add(new MeasureModel
             {
-                Values = new LiveCharts.ChartValues<double> { 3, 4, 6, 3, 2, 6 },
-                StrokeThickness = 4,
-                StrokeDashArray = new System.Windows.Media.DoubleCollection(50),
-                Stroke = new SolidColorBrush(System.Windows.Media.Color.FromRgb(107, 185, 79)),
-                Fill = Brushes.Transparent,
-                LineSmoothness = 0,
-                PointGeometry = null
+                DateTime = now,
+                Value = Data.Speed
+            });
 
-            }
-            );
-
-            cartesianChart1.Series.Add(new LineSeries
+            MotorCurrent_Values.Add(new MeasureModel
             {
-                Values = new LiveCharts.ChartValues<double> { 5, 3, 5, 7, 3, 9},
-                StrokeThickness = 2,
-                StrokeDashArray = new System.Windows.Media.DoubleCollection(50),
-                Stroke = new SolidColorBrush(System.Windows.Media.Color.FromRgb(107, 185, 79)),
-                Fill = Brushes.Transparent,
-                LineSmoothness = 0,
-                PointGeometry = null
+                DateTime = now,
+                Value = Data.Motor_current
+            });
 
-            }
-            );
+            SetAxisLimits(now);
 
-
-            /*
-            //Graph of the motor current
-            chart1.ChartAreas[0].AxisY.Minimum = 0;
-            chart1.ChartAreas[0].AxisY.Maximum = 60;
-
-            chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.Second/600 - graph1_interval;
-
-            if (Data.Motor_current <= 1000 && Data.Motor_current >= 0)
-            {
-                zaman = DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString()+":"+DateTime.Now.Second.ToString();
-                this.chart1.Series[0].Points.AddXY(zaman, Data.Motor_current.ToString());
-
-            }
-            //Graph of the speed
-            chart2.ChartAreas[0].AxisY.Minimum = 0;
-            chart2.ChartAreas[0].AxisY.Maximum = 80;
-
-            if (Data.Speed <= 1000 && Data.Speed >= 0)
-            {
-                zaman = DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString();
-                this.chart2.Series[0].Points.AddXY(zaman, Data.Speed.ToString());
-
-            }
-            */
+            //Maksimum 10000 tane veri tutacak şekilde ayarlandı
+            if (SpeedValues.Count > 10000) SpeedValues.RemoveAt(0);
+            if (MotorCurrent_Values.Count > 10000) MotorCurrent_Values.RemoveAt(0);
         }
-
-        private void Button1Minute_Click(object sender, EventArgs e)
+        private void Axis_RangeChanged(LiveCharts.Events.RangeChangedEventArgs eventArgs)
         {
-            graph1_interval = (float)600;
-        }
+            //sync the graphs
+            double min = ((Axis)eventArgs.Axis).MinValue;
+            double max = ((Axis)eventArgs.Axis).MaxValue;
 
-        private void Button30Seccond_Click(object sender, EventArgs e)
-        {
-            graph1_interval = (float)300;
+            this.Speed_Chart.AxisX[0].MinValue = min;
+            this.Speed_Chart.AxisX[0].MaxValue = max;
+
+            this.MotorCurrent_Chart.AxisX[0].MinValue = min;
+            this.MotorCurrent_Chart.AxisX[0].MaxValue = max;
+
+
+            //Repeat for as many graphs as you have
         }
     }
 }

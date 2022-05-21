@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.PictureBoxConnectionStatue = new System.Windows.Forms.PictureBox();
             this.LabelStatus = new System.Windows.Forms.Label();
@@ -218,7 +212,6 @@
             this.label85 = new System.Windows.Forms.Label();
             this.label87 = new System.Windows.Forms.Label();
             this.Roll = new System.Windows.Forms.Label();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.PV_T1_Label = new System.Windows.Forms.Label();
             this.PV_T2_Label = new System.Windows.Forms.Label();
@@ -236,20 +229,16 @@
             this.label110 = new System.Windows.Forms.Label();
             this.label111 = new System.Windows.Forms.Label();
             this.label112 = new System.Windows.Forms.Label();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.graph_clock = new System.Windows.Forms.Timer(this.components);
-            this.Button1Minute = new System.Windows.Forms.Button();
-            this.Button30Seccond = new System.Windows.Forms.Button();
-            this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
+            this.Speed_Chart = new LiveCharts.WinForms.CartesianChart();
+            this.MotorCurrent_Chart = new LiveCharts.WinForms.CartesianChart();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxConnectionStatue)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -2081,23 +2070,6 @@
             this.Roll.TabIndex = 101;
             this.Roll.Text = "Roll";
             // 
-            // chart1
-            // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
-            this.chart1.Location = new System.Drawing.Point(700, 141);
-            this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(463, 204);
-            this.chart1.TabIndex = 117;
-            this.chart1.Text = "chart1";
-            // 
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.PV_T1_Label);
@@ -2267,66 +2239,35 @@
             this.label112.TabIndex = 101;
             this.label112.Text = "MPPT T.2";
             // 
-            // chart2
-            // 
-            chartArea4.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart2.Legends.Add(legend4);
-            this.chart2.Location = new System.Drawing.Point(709, 157);
-            this.chart2.Name = "chart2";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series4.Legend = "Legend1";
-            series4.Name = "Series2";
-            this.chart2.Series.Add(series4);
-            this.chart2.Size = new System.Drawing.Size(463, 195);
-            this.chart2.TabIndex = 133;
-            this.chart2.Text = "chart2";
-            // 
             // graph_clock
             // 
+            this.graph_clock.Interval = 500;
             this.graph_clock.Tick += new System.EventHandler(this.graph_clock_Tick);
             // 
-            // Button1Minute
+            // Speed_Chart
             // 
-            this.Button1Minute.Location = new System.Drawing.Point(1057, 179);
-            this.Button1Minute.Name = "Button1Minute";
-            this.Button1Minute.Size = new System.Drawing.Size(75, 23);
-            this.Button1Minute.TabIndex = 6;
-            this.Button1Minute.Text = "1 Dakika";
-            this.Button1Minute.UseVisualStyleBackColor = true;
-            this.Button1Minute.Click += new System.EventHandler(this.Button1Minute_Click);
+            this.Speed_Chart.Location = new System.Drawing.Point(700, 146);
+            this.Speed_Chart.Name = "Speed_Chart";
+            this.Speed_Chart.Size = new System.Drawing.Size(454, 198);
+            this.Speed_Chart.TabIndex = 135;
+            this.Speed_Chart.Text = "cartesianChart1";
             // 
-            // Button30Seccond
+            // MotorCurrent_Chart
             // 
-            this.Button30Seccond.Location = new System.Drawing.Point(1057, 208);
-            this.Button30Seccond.Name = "Button30Seccond";
-            this.Button30Seccond.Size = new System.Drawing.Size(75, 23);
-            this.Button30Seccond.TabIndex = 134;
-            this.Button30Seccond.Text = "30 Saniye";
-            this.Button30Seccond.UseVisualStyleBackColor = true;
-            this.Button30Seccond.Click += new System.EventHandler(this.Button30Seccond_Click);
-            // 
-            // cartesianChart1
-            // 
-            this.cartesianChart1.Location = new System.Drawing.Point(700, 351);
-            this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(463, 128);
-            this.cartesianChart1.TabIndex = 135;
-            this.cartesianChart1.Text = "cartesianChart1";
+            this.MotorCurrent_Chart.Location = new System.Drawing.Point(700, 347);
+            this.MotorCurrent_Chart.Name = "MotorCurrent_Chart";
+            this.MotorCurrent_Chart.Size = new System.Drawing.Size(454, 198);
+            this.MotorCurrent_Chart.TabIndex = 136;
+            this.MotorCurrent_Chart.Text = "cartesianChart2";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 557);
-            this.Controls.Add(this.cartesianChart1);
-            this.Controls.Add(this.Button30Seccond);
-            this.Controls.Add(this.Button1Minute);
-            this.Controls.Add(this.chart2);
+            this.Controls.Add(this.MotorCurrent_Chart);
+            this.Controls.Add(this.Speed_Chart);
             this.Controls.Add(this.groupBox8);
-            this.Controls.Add(this.chart1);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
@@ -2346,10 +2287,8 @@
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2515,7 +2454,6 @@
         private System.Windows.Forms.Label label85;
         private System.Windows.Forms.Label label87;
         private System.Windows.Forms.Label Roll;
-        public System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label AccelZ_Label;
         private System.Windows.Forms.Label AccelX_Label;
         private System.Windows.Forms.Label AccelY_Label;
@@ -2557,11 +2495,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label Data_Time_Label;
         private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.Timer graph_clock;
-        private System.Windows.Forms.Button Button1Minute;
-        private System.Windows.Forms.Button Button30Seccond;
-        private LiveCharts.WinForms.CartesianChart cartesianChart1;
+        private LiveCharts.WinForms.CartesianChart Speed_Chart;
+        private LiveCharts.WinForms.CartesianChart MotorCurrent_Chart;
     }
 }
 
