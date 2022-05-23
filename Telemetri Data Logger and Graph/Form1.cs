@@ -17,6 +17,9 @@ namespace Telemetri_Data_Logger_and_Graph
         public int get_i = 0;
         public float tempdata;
         int rf_id;
+        string PilotNumber;
+        int axis_interval;
+        
 
 
         public ChartValues<MeasureModel> SpeedValues { get; set; }
@@ -73,16 +76,19 @@ namespace Telemetri_Data_Logger_and_Graph
             {
                 MinValue = 0
             });
+            
             Speed_Chart.AxisX.Add(new Axis
             {
                 DisableAnimations = true,
                 LabelFormatter = value => new System.DateTime((long)value).ToString("mm:ss"),
+                /*
                 Separator = new Separator
                 {
                     Step = TimeSpan.FromSeconds(20).Ticks
                 }
+                */
             });
-
+            
 
             var MotorCurrent_mapper = Mappers.Xy<MeasureModel>()
                .X(model => model.DateTime.Ticks)   //use DateTime.Ticks as X
@@ -107,29 +113,34 @@ namespace Telemetri_Data_Logger_and_Graph
             {
                 MinValue = 0
             });
+            
             MotorCurrent_Chart.AxisX.Add(new Axis
             {
                 DisableAnimations = true,
                 LabelFormatter = value => new System.DateTime((long)value).ToString("mm:ss"),
+                /*
                 Separator = new Separator
                 {
                     Step = TimeSpan.FromSeconds(20).Ticks
                 }
+                */
             });
 
-
+            Graph1Minute_Button.Enabled = false;
+            axis_interval = 60;            
 
 
             SetAxisLimits(System.DateTime.Now);
         }
         private void SetAxisLimits(System.DateTime now)
         {
-            Speed_Chart.AxisX[0].MaxValue = now.Ticks + TimeSpan.FromSeconds(1).Ticks; // lets force the axis to be 100ms ahead
-            Speed_Chart.AxisX[0].MinValue = now.Ticks - TimeSpan.FromSeconds(300).Ticks; //Sadece son 300 saniyeyi göz önünde bulundurur
+            Speed_Chart.AxisX[0].MaxValue = now.Ticks + TimeSpan.FromSeconds(1).Ticks; // Eksenin 100ms önde olmasını sağlar
+            Speed_Chart.AxisX[0].MinValue = now.Ticks - TimeSpan.FromSeconds(axis_interval).Ticks; //Sadece son 300 saniyeyi göz önünde bulundurur
 
-            MotorCurrent_Chart.AxisX[0].MaxValue = now.Ticks + TimeSpan.FromSeconds(1).Ticks; // lets force the axis to be 100ms ahead
-            MotorCurrent_Chart.AxisX[0].MinValue = now.Ticks - TimeSpan.FromSeconds(300).Ticks; //Sadece son 300 saniyeyi göz önünde bulundurur
+            MotorCurrent_Chart.AxisX[0].MaxValue = now.Ticks + TimeSpan.FromSeconds(1).Ticks; // Eksenin 100ms önde olmasını sağlar
+            MotorCurrent_Chart.AxisX[0].MinValue = now.Ticks - TimeSpan.FromSeconds(axis_interval).Ticks; // Sadece son 300 saniyeyi göz önünde bulundurur
 
+            //Speed_Chart.Zoom = ZoomingOptions.X;
         }
         private bool Start_check()
         {
@@ -692,6 +703,7 @@ namespace Telemetri_Data_Logger_and_Graph
             Motor_T3_Label.Text = Data.Motor_temp3.ToString() + " °C";
             PV_T1_Label.Text = Data.PV_temp1.ToString() + " °C";
             PV_T2_Label.Text = Data.PV_temp2.ToString() + " °C";
+            RFID_Label.Text = rf_id.ToString();
 
         }
        
@@ -733,8 +745,7 @@ namespace Telemetri_Data_Logger_and_Graph
         private void ButtonConnect_Click(object sender, EventArgs e)
         {
             try
-            {
-                
+            {            
                 serialPort1.PortName = ComboBoxPort.Text;
                 serialPort1.BaudRate = Convert.ToInt32(ComboBoxBaudRate.Text);
                 serialPort1.DataBits = 8;
@@ -810,6 +821,8 @@ namespace Telemetri_Data_Logger_and_Graph
                     BMS_Veri();
                 }
                 Yazdir();
+                PilotNumber = ComboBoxPilotNumber.Text;
+
             }
         }
 
@@ -835,6 +848,7 @@ namespace Telemetri_Data_Logger_and_Graph
             if (SpeedValues.Count > 10000) SpeedValues.RemoveAt(0);
             if (MotorCurrent_Values.Count > 10000) MotorCurrent_Values.RemoveAt(0);
         }
+        /*
         private void Axis_RangeChanged(LiveCharts.Events.RangeChangedEventArgs eventArgs)
         {
             //sync the graphs
@@ -847,8 +861,75 @@ namespace Telemetri_Data_Logger_and_Graph
             this.MotorCurrent_Chart.AxisX[0].MinValue = min;
             this.MotorCurrent_Chart.AxisX[0].MaxValue = max;
 
+            
 
             //Repeat for as many graphs as you have
+        }
+        */
+        private void Graph1Minute_Button_Click(object sender, EventArgs e)
+        {
+            Graph1Minute_Button.Enabled = false;
+            Graph5Minute_Button.Enabled = true;
+            Graph10Minute_Button.Enabled = true;
+            Graph15Minute_Button.Enabled = true;
+            GraphInf_Button.Enabled = true;
+
+            axis_interval = 60;
+            SetAxisLimits(System.DateTime.Now);
+        }
+
+        private void Graph5Minute_Button_Click(object sender, EventArgs e)
+        {
+            Graph1Minute_Button.Enabled = true;
+            Graph5Minute_Button.Enabled = false;
+            Graph10Minute_Button.Enabled = true;
+            Graph15Minute_Button.Enabled = true;
+            GraphInf_Button.Enabled = true;
+
+            axis_interval = 300;
+            SetAxisLimits(System.DateTime.Now);
+        }
+
+        private void Graph10Minute_Button_Click(object sender, EventArgs e)
+        {
+            Graph1Minute_Button.Enabled = true;
+            Graph5Minute_Button.Enabled = true;
+            Graph10Minute_Button.Enabled = false;
+            Graph15Minute_Button.Enabled = true;
+            GraphInf_Button.Enabled = true;
+
+            axis_interval = 600;
+            SetAxisLimits(System.DateTime.Now);
+        }
+
+        private void Graph15Minute_Button_Click(object sender, EventArgs e)
+        {
+            Graph1Minute_Button.Enabled = true;
+            Graph5Minute_Button.Enabled = true;
+            Graph10Minute_Button.Enabled = true;
+            Graph15Minute_Button.Enabled = false;
+            GraphInf_Button.Enabled = true;
+
+            axis_interval = 900;
+            SetAxisLimits(System.DateTime.Now);
+        }
+
+        private void GraphInf_Button_Click(object sender, EventArgs e)
+        {
+            Graph1Minute_Button.Enabled = true;
+            Graph5Minute_Button.Enabled = true;
+            Graph10Minute_Button.Enabled = true;
+            Graph15Minute_Button.Enabled = true;
+            GraphInf_Button.Enabled = false;
+
+            axis_interval = 6000;
+            SetAxisLimits(System.DateTime.Now);
+        }
+
+        private void GraphReset_Button_Click(object sender, EventArgs e)
+        {
+            SpeedValues.Clear();
+            MotorCurrent_Values.Clear();
         }
     }
 }

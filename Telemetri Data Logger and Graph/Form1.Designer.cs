@@ -232,6 +232,19 @@
             this.graph_clock = new System.Windows.Forms.Timer(this.components);
             this.Speed_Chart = new LiveCharts.WinForms.CartesianChart();
             this.MotorCurrent_Chart = new LiveCharts.WinForms.CartesianChart();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
+            this.Graph1Minute_Button = new System.Windows.Forms.Button();
+            this.Graph5Minute_Button = new System.Windows.Forms.Button();
+            this.Graph10Minute_Button = new System.Windows.Forms.Button();
+            this.Graph15Minute_Button = new System.Windows.Forms.Button();
+            this.GraphInf_Button = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.GraphReset_Button = new System.Windows.Forms.Button();
+            this.label86 = new System.Windows.Forms.Label();
+            this.label88 = new System.Windows.Forms.Label();
+            this.RFID_Label = new System.Windows.Forms.Label();
+            this.ComboBoxPilotNumber = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxConnectionStatue)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -239,6 +252,7 @@
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -359,180 +373,180 @@
             this.BMS_Voltage1_Label.AutoSize = true;
             this.BMS_Voltage1_Label.Location = new System.Drawing.Point(78, 21);
             this.BMS_Voltage1_Label.Name = "BMS_Voltage1_Label";
-            this.BMS_Voltage1_Label.Size = new System.Drawing.Size(35, 13);
+            this.BMS_Voltage1_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage1_Label.TabIndex = 6;
-            this.BMS_Voltage1_Label.Text = "label6";
+            this.BMS_Voltage1_Label.Text = "0 V";
             // 
             // BMS_Voltage2_Label
             // 
             this.BMS_Voltage2_Label.AutoSize = true;
             this.BMS_Voltage2_Label.Location = new System.Drawing.Point(78, 40);
             this.BMS_Voltage2_Label.Name = "BMS_Voltage2_Label";
-            this.BMS_Voltage2_Label.Size = new System.Drawing.Size(35, 13);
+            this.BMS_Voltage2_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage2_Label.TabIndex = 7;
-            this.BMS_Voltage2_Label.Text = "label7";
+            this.BMS_Voltage2_Label.Text = "0 V";
             // 
             // BMS_Voltage3_Label
             // 
             this.BMS_Voltage3_Label.AutoSize = true;
             this.BMS_Voltage3_Label.Location = new System.Drawing.Point(78, 60);
             this.BMS_Voltage3_Label.Name = "BMS_Voltage3_Label";
-            this.BMS_Voltage3_Label.Size = new System.Drawing.Size(35, 13);
+            this.BMS_Voltage3_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage3_Label.TabIndex = 8;
-            this.BMS_Voltage3_Label.Text = "label8";
+            this.BMS_Voltage3_Label.Text = "0 V";
             // 
             // BMS_Voltage4_Label
             // 
             this.BMS_Voltage4_Label.AutoSize = true;
             this.BMS_Voltage4_Label.Location = new System.Drawing.Point(78, 83);
             this.BMS_Voltage4_Label.Name = "BMS_Voltage4_Label";
-            this.BMS_Voltage4_Label.Size = new System.Drawing.Size(35, 13);
+            this.BMS_Voltage4_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage4_Label.TabIndex = 9;
-            this.BMS_Voltage4_Label.Text = "label9";
+            this.BMS_Voltage4_Label.Text = "0 V";
             // 
             // BMS_Voltage5_Label
             // 
             this.BMS_Voltage5_Label.AutoSize = true;
             this.BMS_Voltage5_Label.Location = new System.Drawing.Point(78, 105);
             this.BMS_Voltage5_Label.Name = "BMS_Voltage5_Label";
-            this.BMS_Voltage5_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage5_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage5_Label.TabIndex = 10;
-            this.BMS_Voltage5_Label.Text = "label10";
+            this.BMS_Voltage5_Label.Text = "0 V";
             // 
             // BMS_Voltage6_Label
             // 
             this.BMS_Voltage6_Label.AutoSize = true;
             this.BMS_Voltage6_Label.Location = new System.Drawing.Point(78, 127);
             this.BMS_Voltage6_Label.Name = "BMS_Voltage6_Label";
-            this.BMS_Voltage6_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage6_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage6_Label.TabIndex = 11;
-            this.BMS_Voltage6_Label.Text = "label11";
+            this.BMS_Voltage6_Label.Text = "0 V";
             // 
             // BMS_Voltage7_Label
             // 
             this.BMS_Voltage7_Label.AutoSize = true;
             this.BMS_Voltage7_Label.Location = new System.Drawing.Point(78, 149);
             this.BMS_Voltage7_Label.Name = "BMS_Voltage7_Label";
-            this.BMS_Voltage7_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage7_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage7_Label.TabIndex = 12;
-            this.BMS_Voltage7_Label.Text = "label12";
+            this.BMS_Voltage7_Label.Text = "0 V";
             // 
             // BMS_Voltage8_Label
             // 
             this.BMS_Voltage8_Label.AutoSize = true;
             this.BMS_Voltage8_Label.Location = new System.Drawing.Point(78, 171);
             this.BMS_Voltage8_Label.Name = "BMS_Voltage8_Label";
-            this.BMS_Voltage8_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage8_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage8_Label.TabIndex = 13;
-            this.BMS_Voltage8_Label.Text = "label13";
+            this.BMS_Voltage8_Label.Text = "0 V";
             // 
             // BMS_Voltage9_Label
             // 
             this.BMS_Voltage9_Label.AutoSize = true;
             this.BMS_Voltage9_Label.Location = new System.Drawing.Point(78, 195);
             this.BMS_Voltage9_Label.Name = "BMS_Voltage9_Label";
-            this.BMS_Voltage9_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage9_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage9_Label.TabIndex = 14;
-            this.BMS_Voltage9_Label.Text = "label14";
+            this.BMS_Voltage9_Label.Text = "0 V";
             // 
             // BMS_Voltage10_Label
             // 
             this.BMS_Voltage10_Label.AutoSize = true;
             this.BMS_Voltage10_Label.Location = new System.Drawing.Point(78, 217);
             this.BMS_Voltage10_Label.Name = "BMS_Voltage10_Label";
-            this.BMS_Voltage10_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage10_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage10_Label.TabIndex = 15;
-            this.BMS_Voltage10_Label.Text = "label15";
+            this.BMS_Voltage10_Label.Text = "0 V";
             // 
             // BMS_Voltage11_Label
             // 
             this.BMS_Voltage11_Label.AutoSize = true;
             this.BMS_Voltage11_Label.Location = new System.Drawing.Point(78, 239);
             this.BMS_Voltage11_Label.Name = "BMS_Voltage11_Label";
-            this.BMS_Voltage11_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage11_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage11_Label.TabIndex = 16;
-            this.BMS_Voltage11_Label.Text = "label16";
+            this.BMS_Voltage11_Label.Text = "0 V";
             // 
             // BMS_Voltage12_Label
             // 
             this.BMS_Voltage12_Label.AutoSize = true;
             this.BMS_Voltage12_Label.Location = new System.Drawing.Point(78, 262);
             this.BMS_Voltage12_Label.Name = "BMS_Voltage12_Label";
-            this.BMS_Voltage12_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage12_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage12_Label.TabIndex = 17;
-            this.BMS_Voltage12_Label.Text = "label17";
+            this.BMS_Voltage12_Label.Text = "0 V";
             // 
             // BMS_Voltage13_Label
             // 
             this.BMS_Voltage13_Label.AutoSize = true;
             this.BMS_Voltage13_Label.Location = new System.Drawing.Point(78, 287);
             this.BMS_Voltage13_Label.Name = "BMS_Voltage13_Label";
-            this.BMS_Voltage13_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage13_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage13_Label.TabIndex = 18;
-            this.BMS_Voltage13_Label.Text = "label18";
+            this.BMS_Voltage13_Label.Text = "0 V";
             // 
             // BMS_Voltage14_Label
             // 
             this.BMS_Voltage14_Label.AutoSize = true;
             this.BMS_Voltage14_Label.Location = new System.Drawing.Point(78, 311);
             this.BMS_Voltage14_Label.Name = "BMS_Voltage14_Label";
-            this.BMS_Voltage14_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage14_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage14_Label.TabIndex = 19;
-            this.BMS_Voltage14_Label.Text = "label19";
+            this.BMS_Voltage14_Label.Text = "0 V";
             // 
             // BMS_Voltage15_Label
             // 
             this.BMS_Voltage15_Label.AutoSize = true;
             this.BMS_Voltage15_Label.Location = new System.Drawing.Point(78, 334);
             this.BMS_Voltage15_Label.Name = "BMS_Voltage15_Label";
-            this.BMS_Voltage15_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage15_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage15_Label.TabIndex = 20;
-            this.BMS_Voltage15_Label.Text = "label20";
+            this.BMS_Voltage15_Label.Text = "0 V";
             // 
             // BMS_Voltage16_Label
             // 
             this.BMS_Voltage16_Label.AutoSize = true;
             this.BMS_Voltage16_Label.Location = new System.Drawing.Point(78, 360);
             this.BMS_Voltage16_Label.Name = "BMS_Voltage16_Label";
-            this.BMS_Voltage16_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage16_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage16_Label.TabIndex = 21;
-            this.BMS_Voltage16_Label.Text = "label21";
+            this.BMS_Voltage16_Label.Text = "0 V";
             // 
             // BMS_Voltage17_Label
             // 
             this.BMS_Voltage17_Label.AutoSize = true;
             this.BMS_Voltage17_Label.Location = new System.Drawing.Point(78, 382);
             this.BMS_Voltage17_Label.Name = "BMS_Voltage17_Label";
-            this.BMS_Voltage17_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage17_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage17_Label.TabIndex = 22;
-            this.BMS_Voltage17_Label.Text = "label22";
+            this.BMS_Voltage17_Label.Text = "0 V";
             // 
             // BMS_Voltage18_Label
             // 
             this.BMS_Voltage18_Label.AutoSize = true;
             this.BMS_Voltage18_Label.Location = new System.Drawing.Point(78, 405);
             this.BMS_Voltage18_Label.Name = "BMS_Voltage18_Label";
-            this.BMS_Voltage18_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage18_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage18_Label.TabIndex = 23;
-            this.BMS_Voltage18_Label.Text = "label23";
+            this.BMS_Voltage18_Label.Text = "0 V";
             // 
             // BMS_Voltage19_Label
             // 
             this.BMS_Voltage19_Label.AutoSize = true;
             this.BMS_Voltage19_Label.Location = new System.Drawing.Point(78, 428);
             this.BMS_Voltage19_Label.Name = "BMS_Voltage19_Label";
-            this.BMS_Voltage19_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage19_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage19_Label.TabIndex = 24;
-            this.BMS_Voltage19_Label.Text = "label24";
+            this.BMS_Voltage19_Label.Text = "0 V";
             // 
             // BMS_Voltage20_Label
             // 
             this.BMS_Voltage20_Label.AutoSize = true;
             this.BMS_Voltage20_Label.Location = new System.Drawing.Point(78, 448);
             this.BMS_Voltage20_Label.Name = "BMS_Voltage20_Label";
-            this.BMS_Voltage20_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage20_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage20_Label.TabIndex = 25;
-            this.BMS_Voltage20_Label.Text = "label25";
+            this.BMS_Voltage20_Label.Text = "0 V";
             // 
             // groupBox4
             // 
@@ -612,18 +626,18 @@
             this.BMS_Voltage21_Label.AutoSize = true;
             this.BMS_Voltage21_Label.Location = new System.Drawing.Point(231, 16);
             this.BMS_Voltage21_Label.Name = "BMS_Voltage21_Label";
-            this.BMS_Voltage21_Label.Size = new System.Drawing.Size(35, 13);
+            this.BMS_Voltage21_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage21_Label.TabIndex = 27;
-            this.BMS_Voltage21_Label.Text = "label6";
+            this.BMS_Voltage21_Label.Text = "0 V";
             // 
             // BMS_Voltage22_Label
             // 
             this.BMS_Voltage22_Label.AutoSize = true;
             this.BMS_Voltage22_Label.Location = new System.Drawing.Point(231, 35);
             this.BMS_Voltage22_Label.Name = "BMS_Voltage22_Label";
-            this.BMS_Voltage22_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage22_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage22_Label.TabIndex = 28;
-            this.BMS_Voltage22_Label.Text = "label66";
+            this.BMS_Voltage22_Label.Text = "0 V";
             // 
             // label45
             // 
@@ -639,9 +653,9 @@
             this.BMS_Voltage23_Label.AutoSize = true;
             this.BMS_Voltage23_Label.Location = new System.Drawing.Point(231, 55);
             this.BMS_Voltage23_Label.Name = "BMS_Voltage23_Label";
-            this.BMS_Voltage23_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage23_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage23_Label.TabIndex = 29;
-            this.BMS_Voltage23_Label.Text = "label67";
+            this.BMS_Voltage23_Label.Text = "0 V";
             // 
             // label46
             // 
@@ -657,9 +671,9 @@
             this.BMS_Voltage24_Label.AutoSize = true;
             this.BMS_Voltage24_Label.Location = new System.Drawing.Point(231, 78);
             this.BMS_Voltage24_Label.Name = "BMS_Voltage24_Label";
-            this.BMS_Voltage24_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage24_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage24_Label.TabIndex = 30;
-            this.BMS_Voltage24_Label.Text = "label68";
+            this.BMS_Voltage24_Label.Text = "0 V";
             // 
             // label47
             // 
@@ -684,9 +698,9 @@
             this.BMS_Voltage25_Label.AutoSize = true;
             this.BMS_Voltage25_Label.Location = new System.Drawing.Point(231, 100);
             this.BMS_Voltage25_Label.Name = "BMS_Voltage25_Label";
-            this.BMS_Voltage25_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage25_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage25_Label.TabIndex = 31;
-            this.BMS_Voltage25_Label.Text = "label70";
+            this.BMS_Voltage25_Label.Text = "0 V";
             // 
             // label50
             // 
@@ -702,9 +716,9 @@
             this.BMS_Voltage26_Label.AutoSize = true;
             this.BMS_Voltage26_Label.Location = new System.Drawing.Point(231, 122);
             this.BMS_Voltage26_Label.Name = "BMS_Voltage26_Label";
-            this.BMS_Voltage26_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage26_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage26_Label.TabIndex = 32;
-            this.BMS_Voltage26_Label.Text = "label72";
+            this.BMS_Voltage26_Label.Text = "0 V";
             // 
             // label52
             // 
@@ -720,9 +734,9 @@
             this.BMS_Voltage27_Label.AutoSize = true;
             this.BMS_Voltage27_Label.Location = new System.Drawing.Point(231, 144);
             this.BMS_Voltage27_Label.Name = "BMS_Voltage27_Label";
-            this.BMS_Voltage27_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage27_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage27_Label.TabIndex = 33;
-            this.BMS_Voltage27_Label.Text = "label74";
+            this.BMS_Voltage27_Label.Text = "0 V";
             // 
             // label54
             // 
@@ -738,9 +752,9 @@
             this.BMS_Voltage28_Label.AutoSize = true;
             this.BMS_Voltage28_Label.Location = new System.Drawing.Point(231, 168);
             this.BMS_Voltage28_Label.Name = "BMS_Voltage28_Label";
-            this.BMS_Voltage28_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage28_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage28_Label.TabIndex = 34;
-            this.BMS_Voltage28_Label.Text = "label76";
+            this.BMS_Voltage28_Label.Text = "0 V";
             // 
             // label56
             // 
@@ -756,9 +770,9 @@
             this.BMS_Voltage29_Label.AutoSize = true;
             this.BMS_Voltage29_Label.Location = new System.Drawing.Point(231, 190);
             this.BMS_Voltage29_Label.Name = "BMS_Voltage29_Label";
-            this.BMS_Voltage29_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage29_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage29_Label.TabIndex = 35;
-            this.BMS_Voltage29_Label.Text = "label78";
+            this.BMS_Voltage29_Label.Text = "0 V";
             // 
             // label58
             // 
@@ -774,9 +788,9 @@
             this.BMS_Voltage30_Label.AutoSize = true;
             this.BMS_Voltage30_Label.Location = new System.Drawing.Point(231, 212);
             this.BMS_Voltage30_Label.Name = "BMS_Voltage30_Label";
-            this.BMS_Voltage30_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage30_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage30_Label.TabIndex = 36;
-            this.BMS_Voltage30_Label.Text = "label80";
+            this.BMS_Voltage30_Label.Text = "0 V";
             // 
             // label60
             // 
@@ -792,9 +806,9 @@
             this.BMS_Voltage31_Label.AutoSize = true;
             this.BMS_Voltage31_Label.Location = new System.Drawing.Point(231, 234);
             this.BMS_Voltage31_Label.Name = "BMS_Voltage31_Label";
-            this.BMS_Voltage31_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage31_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage31_Label.TabIndex = 37;
-            this.BMS_Voltage31_Label.Text = "label82";
+            this.BMS_Voltage31_Label.Text = "0 V";
             // 
             // label62
             // 
@@ -810,9 +824,9 @@
             this.BMS_Voltage32_Label.AutoSize = true;
             this.BMS_Voltage32_Label.Location = new System.Drawing.Point(231, 257);
             this.BMS_Voltage32_Label.Name = "BMS_Voltage32_Label";
-            this.BMS_Voltage32_Label.Size = new System.Drawing.Size(41, 13);
+            this.BMS_Voltage32_Label.Size = new System.Drawing.Size(23, 13);
             this.BMS_Voltage32_Label.TabIndex = 38;
-            this.BMS_Voltage32_Label.Text = "label84";
+            this.BMS_Voltage32_Label.Text = "0 V";
             // 
             // label64
             // 
@@ -1005,6 +1019,8 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.RFID_Label);
+            this.groupBox5.Controls.Add(this.label88);
             this.groupBox5.Controls.Add(this.BattTemp30_Label);
             this.groupBox5.Controls.Add(this.label3);
             this.groupBox5.Controls.Add(this.Data_Time_Label);
@@ -1079,9 +1095,9 @@
             this.BattTemp30_Label.AutoSize = true;
             this.BattTemp30_Label.Location = new System.Drawing.Point(50, 421);
             this.BattTemp30_Label.Name = "BattTemp30_Label";
-            this.BattTemp30_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp30_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp30_Label.TabIndex = 98;
-            this.BattTemp30_Label.Text = "T30";
+            this.BattTemp30_Label.Text = "0 °C";
             // 
             // label3
             // 
@@ -1106,261 +1122,261 @@
             this.BattTemp29_Label.AutoSize = true;
             this.BattTemp29_Label.Location = new System.Drawing.Point(50, 408);
             this.BattTemp29_Label.Name = "BattTemp29_Label";
-            this.BattTemp29_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp29_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp29_Label.TabIndex = 97;
-            this.BattTemp29_Label.Text = "T29";
+            this.BattTemp29_Label.Text = "0 °C";
             // 
             // BattTemp28_Label
             // 
             this.BattTemp28_Label.AutoSize = true;
             this.BattTemp28_Label.Location = new System.Drawing.Point(50, 396);
             this.BattTemp28_Label.Name = "BattTemp28_Label";
-            this.BattTemp28_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp28_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp28_Label.TabIndex = 96;
-            this.BattTemp28_Label.Text = "T28";
+            this.BattTemp28_Label.Text = "0 °C";
             // 
             // BattTemp27_Label
             // 
             this.BattTemp27_Label.AutoSize = true;
             this.BattTemp27_Label.Location = new System.Drawing.Point(50, 383);
             this.BattTemp27_Label.Name = "BattTemp27_Label";
-            this.BattTemp27_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp27_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp27_Label.TabIndex = 95;
-            this.BattTemp27_Label.Text = "T27";
+            this.BattTemp27_Label.Text = "0 °C";
             // 
             // BattTemp26_Label
             // 
             this.BattTemp26_Label.AutoSize = true;
             this.BattTemp26_Label.Location = new System.Drawing.Point(50, 370);
             this.BattTemp26_Label.Name = "BattTemp26_Label";
-            this.BattTemp26_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp26_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp26_Label.TabIndex = 94;
-            this.BattTemp26_Label.Text = "T26";
+            this.BattTemp26_Label.Text = "0 °C";
             // 
             // BattTemp25_Label
             // 
             this.BattTemp25_Label.AutoSize = true;
             this.BattTemp25_Label.Location = new System.Drawing.Point(50, 357);
             this.BattTemp25_Label.Name = "BattTemp25_Label";
-            this.BattTemp25_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp25_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp25_Label.TabIndex = 93;
-            this.BattTemp25_Label.Text = "T25";
+            this.BattTemp25_Label.Text = "0 °C";
             // 
             // BattTemp18_Label
             // 
             this.BattTemp18_Label.AutoSize = true;
             this.BattTemp18_Label.Location = new System.Drawing.Point(50, 263);
             this.BattTemp18_Label.Name = "BattTemp18_Label";
-            this.BattTemp18_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp18_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp18_Label.TabIndex = 86;
-            this.BattTemp18_Label.Text = "T18";
+            this.BattTemp18_Label.Text = "0 °C";
             // 
             // BattTemp20_Label
             // 
             this.BattTemp20_Label.AutoSize = true;
             this.BattTemp20_Label.Location = new System.Drawing.Point(50, 289);
             this.BattTemp20_Label.Name = "BattTemp20_Label";
-            this.BattTemp20_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp20_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp20_Label.TabIndex = 88;
-            this.BattTemp20_Label.Text = "T20";
+            this.BattTemp20_Label.Text = "0 °C";
             // 
             // BattTemp16_Label
             // 
             this.BattTemp16_Label.AutoSize = true;
             this.BattTemp16_Label.Location = new System.Drawing.Point(50, 234);
             this.BattTemp16_Label.Name = "BattTemp16_Label";
-            this.BattTemp16_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp16_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp16_Label.TabIndex = 84;
-            this.BattTemp16_Label.Text = "T16";
+            this.BattTemp16_Label.Text = "0 °C";
             // 
             // BattTemp24_Label
             // 
             this.BattTemp24_Label.AutoSize = true;
             this.BattTemp24_Label.Location = new System.Drawing.Point(50, 344);
             this.BattTemp24_Label.Name = "BattTemp24_Label";
-            this.BattTemp24_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp24_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp24_Label.TabIndex = 92;
-            this.BattTemp24_Label.Text = "T24";
+            this.BattTemp24_Label.Text = "0 °C";
             // 
             // BattTemp15_Label
             // 
             this.BattTemp15_Label.AutoSize = true;
             this.BattTemp15_Label.Location = new System.Drawing.Point(50, 221);
             this.BattTemp15_Label.Name = "BattTemp15_Label";
-            this.BattTemp15_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp15_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp15_Label.TabIndex = 83;
-            this.BattTemp15_Label.Text = "T15";
+            this.BattTemp15_Label.Text = "0 °C";
             // 
             // BattTemp19_Label
             // 
             this.BattTemp19_Label.AutoSize = true;
             this.BattTemp19_Label.Location = new System.Drawing.Point(50, 276);
             this.BattTemp19_Label.Name = "BattTemp19_Label";
-            this.BattTemp19_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp19_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp19_Label.TabIndex = 87;
-            this.BattTemp19_Label.Text = "T19";
+            this.BattTemp19_Label.Text = "0 °C";
             // 
             // BattTemp17_Label
             // 
             this.BattTemp17_Label.AutoSize = true;
             this.BattTemp17_Label.Location = new System.Drawing.Point(50, 249);
             this.BattTemp17_Label.Name = "BattTemp17_Label";
-            this.BattTemp17_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp17_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp17_Label.TabIndex = 85;
-            this.BattTemp17_Label.Text = "T17";
+            this.BattTemp17_Label.Text = "0 °C";
             // 
             // BattTemp23_Label
             // 
             this.BattTemp23_Label.AutoSize = true;
             this.BattTemp23_Label.Location = new System.Drawing.Point(50, 329);
             this.BattTemp23_Label.Name = "BattTemp23_Label";
-            this.BattTemp23_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp23_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp23_Label.TabIndex = 91;
-            this.BattTemp23_Label.Text = "T23";
+            this.BattTemp23_Label.Text = "0 °C";
             // 
             // BattTemp13_Label
             // 
             this.BattTemp13_Label.AutoSize = true;
             this.BattTemp13_Label.Location = new System.Drawing.Point(50, 193);
             this.BattTemp13_Label.Name = "BattTemp13_Label";
-            this.BattTemp13_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp13_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp13_Label.TabIndex = 81;
-            this.BattTemp13_Label.Text = "T13";
+            this.BattTemp13_Label.Text = "0 °C";
             // 
             // BattTemp21_Label
             // 
             this.BattTemp21_Label.AutoSize = true;
             this.BattTemp21_Label.Location = new System.Drawing.Point(50, 302);
             this.BattTemp21_Label.Name = "BattTemp21_Label";
-            this.BattTemp21_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp21_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp21_Label.TabIndex = 89;
-            this.BattTemp21_Label.Text = "T21";
+            this.BattTemp21_Label.Text = "0 °C";
             // 
             // BattTemp14_Label
             // 
             this.BattTemp14_Label.AutoSize = true;
             this.BattTemp14_Label.Location = new System.Drawing.Point(50, 207);
             this.BattTemp14_Label.Name = "BattTemp14_Label";
-            this.BattTemp14_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp14_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp14_Label.TabIndex = 82;
-            this.BattTemp14_Label.Text = "T14";
+            this.BattTemp14_Label.Text = "0 °C";
             // 
             // BattTemp22_Label
             // 
             this.BattTemp22_Label.AutoSize = true;
             this.BattTemp22_Label.Location = new System.Drawing.Point(50, 316);
             this.BattTemp22_Label.Name = "BattTemp22_Label";
-            this.BattTemp22_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp22_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp22_Label.TabIndex = 90;
-            this.BattTemp22_Label.Text = "T22";
+            this.BattTemp22_Label.Text = "0 °C";
             // 
             // BattTemp6_Label
             // 
             this.BattTemp6_Label.AutoSize = true;
             this.BattTemp6_Label.Location = new System.Drawing.Point(50, 98);
             this.BattTemp6_Label.Name = "BattTemp6_Label";
-            this.BattTemp6_Label.Size = new System.Drawing.Size(20, 13);
+            this.BattTemp6_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp6_Label.TabIndex = 74;
-            this.BattTemp6_Label.Text = "T6";
+            this.BattTemp6_Label.Text = "0 °C";
             // 
             // BattTemp8_Label
             // 
             this.BattTemp8_Label.AutoSize = true;
             this.BattTemp8_Label.Location = new System.Drawing.Point(50, 126);
             this.BattTemp8_Label.Name = "BattTemp8_Label";
-            this.BattTemp8_Label.Size = new System.Drawing.Size(20, 13);
+            this.BattTemp8_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp8_Label.TabIndex = 76;
-            this.BattTemp8_Label.Text = "T8";
+            this.BattTemp8_Label.Text = "0 °C";
             // 
             // BattTemp4_Label
             // 
             this.BattTemp4_Label.AutoSize = true;
             this.BattTemp4_Label.Location = new System.Drawing.Point(50, 72);
             this.BattTemp4_Label.Name = "BattTemp4_Label";
-            this.BattTemp4_Label.Size = new System.Drawing.Size(20, 13);
+            this.BattTemp4_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp4_Label.TabIndex = 72;
-            this.BattTemp4_Label.Text = "T4";
+            this.BattTemp4_Label.Text = "0 °C";
             // 
             // BattTemp12_Label
             // 
             this.BattTemp12_Label.AutoSize = true;
             this.BattTemp12_Label.Location = new System.Drawing.Point(50, 179);
             this.BattTemp12_Label.Name = "BattTemp12_Label";
-            this.BattTemp12_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp12_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp12_Label.TabIndex = 80;
-            this.BattTemp12_Label.Text = "T12";
+            this.BattTemp12_Label.Text = "0 °C";
             // 
             // BattTemp3_Label
             // 
             this.BattTemp3_Label.AutoSize = true;
             this.BattTemp3_Label.Location = new System.Drawing.Point(50, 59);
             this.BattTemp3_Label.Name = "BattTemp3_Label";
-            this.BattTemp3_Label.Size = new System.Drawing.Size(20, 13);
+            this.BattTemp3_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp3_Label.TabIndex = 71;
-            this.BattTemp3_Label.Text = "T3";
+            this.BattTemp3_Label.Text = "0 °C";
             // 
             // BattTemp7_Label
             // 
             this.BattTemp7_Label.AutoSize = true;
             this.BattTemp7_Label.Location = new System.Drawing.Point(50, 113);
             this.BattTemp7_Label.Name = "BattTemp7_Label";
-            this.BattTemp7_Label.Size = new System.Drawing.Size(20, 13);
+            this.BattTemp7_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp7_Label.TabIndex = 75;
-            this.BattTemp7_Label.Text = "T7";
+            this.BattTemp7_Label.Text = "0 °C";
             // 
             // BattTemp5_Label
             // 
             this.BattTemp5_Label.AutoSize = true;
             this.BattTemp5_Label.Location = new System.Drawing.Point(50, 85);
             this.BattTemp5_Label.Name = "BattTemp5_Label";
-            this.BattTemp5_Label.Size = new System.Drawing.Size(20, 13);
+            this.BattTemp5_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp5_Label.TabIndex = 73;
-            this.BattTemp5_Label.Text = "T5";
+            this.BattTemp5_Label.Text = "0 °C";
             // 
             // BattTemp11_Label
             // 
             this.BattTemp11_Label.AutoSize = true;
             this.BattTemp11_Label.Location = new System.Drawing.Point(50, 165);
             this.BattTemp11_Label.Name = "BattTemp11_Label";
-            this.BattTemp11_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp11_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp11_Label.TabIndex = 79;
-            this.BattTemp11_Label.Text = "T11";
+            this.BattTemp11_Label.Text = "0 °C";
             // 
             // BattTemp1_Label
             // 
             this.BattTemp1_Label.AutoSize = true;
             this.BattTemp1_Label.Location = new System.Drawing.Point(50, 33);
             this.BattTemp1_Label.Name = "BattTemp1_Label";
-            this.BattTemp1_Label.Size = new System.Drawing.Size(20, 13);
+            this.BattTemp1_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp1_Label.TabIndex = 69;
-            this.BattTemp1_Label.Text = "T1";
+            this.BattTemp1_Label.Text = "0 °C";
             // 
             // BattTemp9_Label
             // 
             this.BattTemp9_Label.AutoSize = true;
             this.BattTemp9_Label.Location = new System.Drawing.Point(50, 139);
             this.BattTemp9_Label.Name = "BattTemp9_Label";
-            this.BattTemp9_Label.Size = new System.Drawing.Size(20, 13);
+            this.BattTemp9_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp9_Label.TabIndex = 77;
-            this.BattTemp9_Label.Text = "T9";
+            this.BattTemp9_Label.Text = "0 °C";
             // 
             // BattTemp2_Label
             // 
             this.BattTemp2_Label.AutoSize = true;
             this.BattTemp2_Label.Location = new System.Drawing.Point(50, 46);
             this.BattTemp2_Label.Name = "BattTemp2_Label";
-            this.BattTemp2_Label.Size = new System.Drawing.Size(20, 13);
+            this.BattTemp2_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp2_Label.TabIndex = 70;
-            this.BattTemp2_Label.Text = "T2";
+            this.BattTemp2_Label.Text = "0 °C";
             // 
             // BattTemp10_Label
             // 
             this.BattTemp10_Label.AutoSize = true;
             this.BattTemp10_Label.Location = new System.Drawing.Point(50, 152);
             this.BattTemp10_Label.Name = "BattTemp10_Label";
-            this.BattTemp10_Label.Size = new System.Drawing.Size(26, 13);
+            this.BattTemp10_Label.Size = new System.Drawing.Size(27, 13);
             this.BattTemp10_Label.TabIndex = 78;
-            this.BattTemp10_Label.Text = "T10";
+            this.BattTemp10_Label.Text = "0 °C";
             // 
             // label67
             // 
@@ -1637,63 +1653,63 @@
             this.Speed_Label.AutoSize = true;
             this.Speed_Label.Location = new System.Drawing.Point(99, 83);
             this.Speed_Label.Name = "Speed_Label";
-            this.Speed_Label.Size = new System.Drawing.Size(20, 13);
+            this.Speed_Label.Size = new System.Drawing.Size(44, 13);
             this.Speed_Label.TabIndex = 112;
-            this.Speed_Label.Text = "T6";
+            this.Speed_Label.Text = "0  km/h";
             // 
             // PVEnergy_Label
             // 
             this.PVEnergy_Label.AutoSize = true;
             this.PVEnergy_Label.Location = new System.Drawing.Point(99, 57);
             this.PVEnergy_Label.Name = "PVEnergy_Label";
-            this.PVEnergy_Label.Size = new System.Drawing.Size(20, 13);
+            this.PVEnergy_Label.Size = new System.Drawing.Size(27, 13);
             this.PVEnergy_Label.TabIndex = 110;
-            this.PVEnergy_Label.Text = "T4";
+            this.PVEnergy_Label.Text = "0 W";
             // 
             // BattVoltage_Label
             // 
             this.BattVoltage_Label.AutoSize = true;
             this.BattVoltage_Label.Location = new System.Drawing.Point(99, 44);
             this.BattVoltage_Label.Name = "BattVoltage_Label";
-            this.BattVoltage_Label.Size = new System.Drawing.Size(20, 13);
+            this.BattVoltage_Label.Size = new System.Drawing.Size(23, 13);
             this.BattVoltage_Label.TabIndex = 109;
-            this.BattVoltage_Label.Text = "T3";
+            this.BattVoltage_Label.Text = "0 V";
             // 
             // CabinTemp_Label
             // 
             this.CabinTemp_Label.AutoSize = true;
             this.CabinTemp_Label.Location = new System.Drawing.Point(99, 98);
             this.CabinTemp_Label.Name = "CabinTemp_Label";
-            this.CabinTemp_Label.Size = new System.Drawing.Size(20, 13);
+            this.CabinTemp_Label.Size = new System.Drawing.Size(23, 13);
             this.CabinTemp_Label.TabIndex = 113;
-            this.CabinTemp_Label.Text = "T7";
+            this.CabinTemp_Label.Text = "0 T";
             // 
             // PVCurrent_Label
             // 
             this.PVCurrent_Label.AutoSize = true;
             this.PVCurrent_Label.Location = new System.Drawing.Point(99, 70);
             this.PVCurrent_Label.Name = "PVCurrent_Label";
-            this.PVCurrent_Label.Size = new System.Drawing.Size(20, 13);
+            this.PVCurrent_Label.Size = new System.Drawing.Size(23, 13);
             this.PVCurrent_Label.TabIndex = 111;
-            this.PVCurrent_Label.Text = "T5";
+            this.PVCurrent_Label.Text = "0 A";
             // 
             // BattEnergy_Label
             // 
             this.BattEnergy_Label.AutoSize = true;
             this.BattEnergy_Label.Location = new System.Drawing.Point(99, 18);
             this.BattEnergy_Label.Name = "BattEnergy_Label";
-            this.BattEnergy_Label.Size = new System.Drawing.Size(20, 13);
+            this.BattEnergy_Label.Size = new System.Drawing.Size(27, 13);
             this.BattEnergy_Label.TabIndex = 107;
-            this.BattEnergy_Label.Text = "T1";
+            this.BattEnergy_Label.Text = "0 W";
             // 
             // BattCurrent_Label
             // 
             this.BattCurrent_Label.AutoSize = true;
             this.BattCurrent_Label.Location = new System.Drawing.Point(99, 31);
             this.BattCurrent_Label.Name = "BattCurrent_Label";
-            this.BattCurrent_Label.Size = new System.Drawing.Size(20, 13);
+            this.BattCurrent_Label.Size = new System.Drawing.Size(23, 13);
             this.BattCurrent_Label.TabIndex = 108;
-            this.BattCurrent_Label.Text = "T2";
+            this.BattCurrent_Label.Text = "0 A";
             // 
             // label76
             // 
@@ -1788,9 +1804,9 @@
             this.Motor_Current_Label.AutoSize = true;
             this.Motor_Current_Label.Location = new System.Drawing.Point(99, 110);
             this.Motor_Current_Label.Name = "Motor_Current_Label";
-            this.Motor_Current_Label.Size = new System.Drawing.Size(20, 13);
+            this.Motor_Current_Label.Size = new System.Drawing.Size(23, 13);
             this.Motor_Current_Label.TabIndex = 116;
-            this.Motor_Current_Label.Text = "T8";
+            this.Motor_Current_Label.Text = "0 A";
             // 
             // label4
             // 
@@ -1841,18 +1857,18 @@
             this.GPS_Height_Label.AutoSize = true;
             this.GPS_Height_Label.Location = new System.Drawing.Point(99, 177);
             this.GPS_Height_Label.Name = "GPS_Height_Label";
-            this.GPS_Height_Label.Size = new System.Drawing.Size(20, 13);
+            this.GPS_Height_Label.Size = new System.Drawing.Size(24, 13);
             this.GPS_Height_Label.TabIndex = 129;
-            this.GPS_Height_Label.Text = "T3";
+            this.GPS_Height_Label.Text = "0 m";
             // 
             // GPS_Speed_Label
             // 
             this.GPS_Speed_Label.AutoSize = true;
             this.GPS_Speed_Label.Location = new System.Drawing.Point(99, 164);
             this.GPS_Speed_Label.Name = "GPS_Speed_Label";
-            this.GPS_Speed_Label.Size = new System.Drawing.Size(20, 13);
+            this.GPS_Speed_Label.Size = new System.Drawing.Size(44, 13);
             this.GPS_Speed_Label.TabIndex = 128;
-            this.GPS_Speed_Label.Text = "T2";
+            this.GPS_Speed_Label.Text = "0  km/h";
             // 
             // label72
             // 
@@ -1877,18 +1893,18 @@
             this.Longitude_Label.AutoSize = true;
             this.Longitude_Label.Location = new System.Drawing.Point(99, 151);
             this.Longitude_Label.Name = "Longitude_Label";
-            this.Longitude_Label.Size = new System.Drawing.Size(20, 13);
+            this.Longitude_Label.Size = new System.Drawing.Size(13, 13);
             this.Longitude_Label.TabIndex = 125;
-            this.Longitude_Label.Text = "T3";
+            this.Longitude_Label.Text = "0";
             // 
             // Latitude_Label
             // 
             this.Latitude_Label.AutoSize = true;
             this.Latitude_Label.Location = new System.Drawing.Point(99, 138);
             this.Latitude_Label.Name = "Latitude_Label";
-            this.Latitude_Label.Size = new System.Drawing.Size(20, 13);
+            this.Latitude_Label.Size = new System.Drawing.Size(13, 13);
             this.Latitude_Label.TabIndex = 124;
-            this.Latitude_Label.Text = "T2";
+            this.Latitude_Label.Text = "0";
             // 
             // label5
             // 
@@ -1913,27 +1929,27 @@
             this.AccelZ_Label.AutoSize = true;
             this.AccelZ_Label.Location = new System.Drawing.Point(99, 124);
             this.AccelZ_Label.Name = "AccelZ_Label";
-            this.AccelZ_Label.Size = new System.Drawing.Size(20, 13);
+            this.AccelZ_Label.Size = new System.Drawing.Size(24, 13);
             this.AccelZ_Label.TabIndex = 121;
-            this.AccelZ_Label.Text = "T3";
+            this.AccelZ_Label.Text = "0 G";
             // 
             // AccelX_Label
             // 
             this.AccelX_Label.AutoSize = true;
             this.AccelX_Label.Location = new System.Drawing.Point(99, 98);
             this.AccelX_Label.Name = "AccelX_Label";
-            this.AccelX_Label.Size = new System.Drawing.Size(20, 13);
+            this.AccelX_Label.Size = new System.Drawing.Size(24, 13);
             this.AccelX_Label.TabIndex = 119;
-            this.AccelX_Label.Text = "T1";
+            this.AccelX_Label.Text = "0 G";
             // 
             // AccelY_Label
             // 
             this.AccelY_Label.AutoSize = true;
             this.AccelY_Label.Location = new System.Drawing.Point(99, 111);
             this.AccelY_Label.Name = "AccelY_Label";
-            this.AccelY_Label.Size = new System.Drawing.Size(20, 13);
+            this.AccelY_Label.Size = new System.Drawing.Size(24, 13);
             this.AccelY_Label.TabIndex = 120;
-            this.AccelY_Label.Text = "T2";
+            this.AccelY_Label.Text = "0 G";
             // 
             // label74
             // 
@@ -1967,27 +1983,27 @@
             this.GyroZ_Label.AutoSize = true;
             this.GyroZ_Label.Location = new System.Drawing.Point(99, 83);
             this.GyroZ_Label.Name = "GyroZ_Label";
-            this.GyroZ_Label.Size = new System.Drawing.Size(20, 13);
+            this.GyroZ_Label.Size = new System.Drawing.Size(44, 13);
             this.GyroZ_Label.TabIndex = 115;
-            this.GyroZ_Label.Text = "T3";
+            this.GyroZ_Label.Text = "0 deg/s";
             // 
             // GyroX_Label
             // 
             this.GyroX_Label.AutoSize = true;
             this.GyroX_Label.Location = new System.Drawing.Point(99, 57);
             this.GyroX_Label.Name = "GyroX_Label";
-            this.GyroX_Label.Size = new System.Drawing.Size(20, 13);
+            this.GyroX_Label.Size = new System.Drawing.Size(44, 13);
             this.GyroX_Label.TabIndex = 113;
-            this.GyroX_Label.Text = "T1";
+            this.GyroX_Label.Text = "0 deg/s";
             // 
             // GyroY_Label
             // 
             this.GyroY_Label.AutoSize = true;
             this.GyroY_Label.Location = new System.Drawing.Point(99, 70);
             this.GyroY_Label.Name = "GyroY_Label";
-            this.GyroY_Label.Size = new System.Drawing.Size(20, 13);
+            this.GyroY_Label.Size = new System.Drawing.Size(44, 13);
             this.GyroY_Label.TabIndex = 114;
-            this.GyroY_Label.Text = "T2";
+            this.GyroY_Label.Text = "0 deg/s";
             // 
             // label68
             // 
@@ -2021,27 +2037,27 @@
             this.Roll_Label.AutoSize = true;
             this.Roll_Label.Location = new System.Drawing.Point(99, 44);
             this.Roll_Label.Name = "Roll_Label";
-            this.Roll_Label.Size = new System.Drawing.Size(20, 13);
+            this.Roll_Label.Size = new System.Drawing.Size(34, 13);
             this.Roll_Label.TabIndex = 109;
-            this.Roll_Label.Text = "T3";
+            this.Roll_Label.Text = "0 deg";
             // 
             // Yaw_Label
             // 
             this.Yaw_Label.AutoSize = true;
             this.Yaw_Label.Location = new System.Drawing.Point(99, 18);
             this.Yaw_Label.Name = "Yaw_Label";
-            this.Yaw_Label.Size = new System.Drawing.Size(20, 13);
+            this.Yaw_Label.Size = new System.Drawing.Size(34, 13);
             this.Yaw_Label.TabIndex = 107;
-            this.Yaw_Label.Text = "T1";
+            this.Yaw_Label.Text = "0 deg";
             // 
             // Pitch_Label
             // 
             this.Pitch_Label.AutoSize = true;
             this.Pitch_Label.Location = new System.Drawing.Point(99, 31);
             this.Pitch_Label.Name = "Pitch_Label";
-            this.Pitch_Label.Size = new System.Drawing.Size(20, 13);
+            this.Pitch_Label.Size = new System.Drawing.Size(34, 13);
             this.Pitch_Label.TabIndex = 108;
-            this.Pitch_Label.Text = "T2";
+            this.Pitch_Label.Text = "0 deg";
             // 
             // label85
             // 
@@ -2100,18 +2116,18 @@
             this.PV_T1_Label.AutoSize = true;
             this.PV_T1_Label.Location = new System.Drawing.Point(99, 98);
             this.PV_T1_Label.Name = "PV_T1_Label";
-            this.PV_T1_Label.Size = new System.Drawing.Size(20, 13);
+            this.PV_T1_Label.Size = new System.Drawing.Size(27, 13);
             this.PV_T1_Label.TabIndex = 119;
-            this.PV_T1_Label.Text = "T1";
+            this.PV_T1_Label.Text = "0 °C";
             // 
             // PV_T2_Label
             // 
             this.PV_T2_Label.AutoSize = true;
             this.PV_T2_Label.Location = new System.Drawing.Point(99, 111);
             this.PV_T2_Label.Name = "PV_T2_Label";
-            this.PV_T2_Label.Size = new System.Drawing.Size(20, 13);
+            this.PV_T2_Label.Size = new System.Drawing.Size(27, 13);
             this.PV_T2_Label.TabIndex = 120;
-            this.PV_T2_Label.Text = "T2";
+            this.PV_T2_Label.Text = "0 °C";
             // 
             // label98
             // 
@@ -2136,27 +2152,27 @@
             this.Motor_T3_Label.AutoSize = true;
             this.Motor_T3_Label.Location = new System.Drawing.Point(99, 83);
             this.Motor_T3_Label.Name = "Motor_T3_Label";
-            this.Motor_T3_Label.Size = new System.Drawing.Size(20, 13);
+            this.Motor_T3_Label.Size = new System.Drawing.Size(27, 13);
             this.Motor_T3_Label.TabIndex = 115;
-            this.Motor_T3_Label.Text = "T3";
+            this.Motor_T3_Label.Text = "0 °C";
             // 
             // Motor_T1_Label
             // 
             this.Motor_T1_Label.AutoSize = true;
             this.Motor_T1_Label.Location = new System.Drawing.Point(99, 57);
             this.Motor_T1_Label.Name = "Motor_T1_Label";
-            this.Motor_T1_Label.Size = new System.Drawing.Size(20, 13);
+            this.Motor_T1_Label.Size = new System.Drawing.Size(27, 13);
             this.Motor_T1_Label.TabIndex = 113;
-            this.Motor_T1_Label.Text = "T1";
+            this.Motor_T1_Label.Text = "0 °C";
             // 
             // Motor_T2_Label
             // 
             this.Motor_T2_Label.AutoSize = true;
             this.Motor_T2_Label.Location = new System.Drawing.Point(99, 70);
             this.Motor_T2_Label.Name = "Motor_T2_Label";
-            this.Motor_T2_Label.Size = new System.Drawing.Size(20, 13);
+            this.Motor_T2_Label.Size = new System.Drawing.Size(27, 13);
             this.Motor_T2_Label.TabIndex = 114;
-            this.Motor_T2_Label.Text = "T2";
+            this.Motor_T2_Label.Text = "0 °C";
             // 
             // label104
             // 
@@ -2190,27 +2206,27 @@
             this.MPPT_T2_Label.AutoSize = true;
             this.MPPT_T2_Label.Location = new System.Drawing.Point(99, 44);
             this.MPPT_T2_Label.Name = "MPPT_T2_Label";
-            this.MPPT_T2_Label.Size = new System.Drawing.Size(20, 13);
+            this.MPPT_T2_Label.Size = new System.Drawing.Size(27, 13);
             this.MPPT_T2_Label.TabIndex = 109;
-            this.MPPT_T2_Label.Text = "T3";
+            this.MPPT_T2_Label.Text = "0 °C";
             // 
             // Pilot_Uyari_Label
             // 
             this.Pilot_Uyari_Label.AutoSize = true;
             this.Pilot_Uyari_Label.Location = new System.Drawing.Point(99, 18);
             this.Pilot_Uyari_Label.Name = "Pilot_Uyari_Label";
-            this.Pilot_Uyari_Label.Size = new System.Drawing.Size(20, 13);
+            this.Pilot_Uyari_Label.Size = new System.Drawing.Size(13, 13);
             this.Pilot_Uyari_Label.TabIndex = 107;
-            this.Pilot_Uyari_Label.Text = "T1";
+            this.Pilot_Uyari_Label.Text = "0";
             // 
             // MPPT_T1_Label
             // 
             this.MPPT_T1_Label.AutoSize = true;
             this.MPPT_T1_Label.Location = new System.Drawing.Point(99, 31);
             this.MPPT_T1_Label.Name = "MPPT_T1_Label";
-            this.MPPT_T1_Label.Size = new System.Drawing.Size(20, 13);
+            this.MPPT_T1_Label.Size = new System.Drawing.Size(27, 13);
             this.MPPT_T1_Label.TabIndex = 108;
-            this.MPPT_T1_Label.Text = "T2";
+            this.MPPT_T1_Label.Text = "0 °C";
             // 
             // label110
             // 
@@ -2246,27 +2262,168 @@
             // 
             // Speed_Chart
             // 
-            this.Speed_Chart.Location = new System.Drawing.Point(700, 146);
+            this.Speed_Chart.Location = new System.Drawing.Point(38, 42);
             this.Speed_Chart.Name = "Speed_Chart";
-            this.Speed_Chart.Size = new System.Drawing.Size(454, 198);
+            this.Speed_Chart.Size = new System.Drawing.Size(520, 200);
             this.Speed_Chart.TabIndex = 135;
             this.Speed_Chart.Text = "cartesianChart1";
             // 
             // MotorCurrent_Chart
             // 
-            this.MotorCurrent_Chart.Location = new System.Drawing.Point(700, 347);
+            this.MotorCurrent_Chart.Location = new System.Drawing.Point(38, 270);
             this.MotorCurrent_Chart.Name = "MotorCurrent_Chart";
-            this.MotorCurrent_Chart.Size = new System.Drawing.Size(454, 198);
+            this.MotorCurrent_Chart.Size = new System.Drawing.Size(520, 200);
             this.MotorCurrent_Chart.TabIndex = 136;
             this.MotorCurrent_Chart.Text = "cartesianChart2";
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(260, 244);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 17);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Motor Speed";
+            // 
+            // label77
+            // 
+            this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label77.Location = new System.Drawing.Point(260, 472);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(102, 17);
+            this.label77.TabIndex = 137;
+            this.label77.Text = "Motor Current";
+            // 
+            // Graph1Minute_Button
+            // 
+            this.Graph1Minute_Button.Location = new System.Drawing.Point(105, 14);
+            this.Graph1Minute_Button.Name = "Graph1Minute_Button";
+            this.Graph1Minute_Button.Size = new System.Drawing.Size(75, 23);
+            this.Graph1Minute_Button.TabIndex = 138;
+            this.Graph1Minute_Button.Text = "1 Minute";
+            this.Graph1Minute_Button.UseVisualStyleBackColor = true;
+            this.Graph1Minute_Button.Click += new System.EventHandler(this.Graph1Minute_Button_Click);
+            // 
+            // Graph5Minute_Button
+            // 
+            this.Graph5Minute_Button.Location = new System.Drawing.Point(185, 14);
+            this.Graph5Minute_Button.Name = "Graph5Minute_Button";
+            this.Graph5Minute_Button.Size = new System.Drawing.Size(75, 23);
+            this.Graph5Minute_Button.TabIndex = 139;
+            this.Graph5Minute_Button.Text = "5 Minute";
+            this.Graph5Minute_Button.UseVisualStyleBackColor = true;
+            this.Graph5Minute_Button.Click += new System.EventHandler(this.Graph5Minute_Button_Click);
+            // 
+            // Graph10Minute_Button
+            // 
+            this.Graph10Minute_Button.Location = new System.Drawing.Point(265, 14);
+            this.Graph10Minute_Button.Name = "Graph10Minute_Button";
+            this.Graph10Minute_Button.Size = new System.Drawing.Size(75, 23);
+            this.Graph10Minute_Button.TabIndex = 140;
+            this.Graph10Minute_Button.Text = "10 Minute";
+            this.Graph10Minute_Button.UseVisualStyleBackColor = true;
+            this.Graph10Minute_Button.Click += new System.EventHandler(this.Graph10Minute_Button_Click);
+            // 
+            // Graph15Minute_Button
+            // 
+            this.Graph15Minute_Button.Location = new System.Drawing.Point(345, 14);
+            this.Graph15Minute_Button.Name = "Graph15Minute_Button";
+            this.Graph15Minute_Button.Size = new System.Drawing.Size(75, 23);
+            this.Graph15Minute_Button.TabIndex = 141;
+            this.Graph15Minute_Button.Text = "15 Minute";
+            this.Graph15Minute_Button.UseVisualStyleBackColor = true;
+            this.Graph15Minute_Button.Click += new System.EventHandler(this.Graph15Minute_Button_Click);
+            // 
+            // GraphInf_Button
+            // 
+            this.GraphInf_Button.Location = new System.Drawing.Point(425, 14);
+            this.GraphInf_Button.Name = "GraphInf_Button";
+            this.GraphInf_Button.Size = new System.Drawing.Size(75, 23);
+            this.GraphInf_Button.TabIndex = 142;
+            this.GraphInf_Button.Text = "Infinite";
+            this.GraphInf_Button.UseVisualStyleBackColor = true;
+            this.GraphInf_Button.Click += new System.EventHandler(this.GraphInf_Button_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.GraphReset_Button);
+            this.groupBox2.Controls.Add(this.Speed_Chart);
+            this.groupBox2.Controls.Add(this.GraphInf_Button);
+            this.groupBox2.Controls.Add(this.MotorCurrent_Chart);
+            this.groupBox2.Controls.Add(this.Graph15Minute_Button);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.Graph10Minute_Button);
+            this.groupBox2.Controls.Add(this.label77);
+            this.groupBox2.Controls.Add(this.Graph5Minute_Button);
+            this.groupBox2.Controls.Add(this.Graph1Minute_Button);
+            this.groupBox2.Location = new System.Drawing.Point(713, 133);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(573, 500);
+            this.groupBox2.TabIndex = 143;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // GraphReset_Button
+            // 
+            this.GraphReset_Button.Location = new System.Drawing.Point(265, 42);
+            this.GraphReset_Button.Name = "GraphReset_Button";
+            this.GraphReset_Button.Size = new System.Drawing.Size(75, 23);
+            this.GraphReset_Button.TabIndex = 143;
+            this.GraphReset_Button.Text = "Reset";
+            this.GraphReset_Button.UseVisualStyleBackColor = true;
+            this.GraphReset_Button.Click += new System.EventHandler(this.GraphReset_Button_Click);
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(257, 497);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(73, 13);
+            this.label86.TabIndex = 145;
+            this.label86.Text = "Pilot Number: ";
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Location = new System.Drawing.Point(4, 439);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(49, 13);
+            this.label88.TabIndex = 133;
+            this.label88.Text = "Channel:";
+            // 
+            // RFID_Label
+            // 
+            this.RFID_Label.AutoSize = true;
+            this.RFID_Label.Location = new System.Drawing.Point(60, 438);
+            this.RFID_Label.Name = "RFID_Label";
+            this.RFID_Label.Size = new System.Drawing.Size(41, 13);
+            this.RFID_Label.TabIndex = 134;
+            this.RFID_Label.Text = "label89";
+            // 
+            // ComboBoxPilotNumber
+            // 
+            this.ComboBoxPilotNumber.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxPilotNumber.FormattingEnabled = true;
+            this.ComboBoxPilotNumber.Items.AddRange(new object[] {
+            "Pilot1",
+            "Pilot2",
+            "Pilot3",
+            "Pilot4",
+            "Pilot5",
+            "Pilot6"});
+            this.ComboBoxPilotNumber.Location = new System.Drawing.Point(336, 494);
+            this.ComboBoxPilotNumber.Name = "ComboBoxPilotNumber";
+            this.ComboBoxPilotNumber.Size = new System.Drawing.Size(121, 21);
+            this.ComboBoxPilotNumber.TabIndex = 6;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 557);
-            this.Controls.Add(this.MotorCurrent_Chart);
-            this.Controls.Add(this.Speed_Chart);
+            this.ClientSize = new System.Drawing.Size(1336, 667);
+            this.Controls.Add(this.ComboBoxPilotNumber);
+            this.Controls.Add(this.label86);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
@@ -2289,7 +2446,9 @@
             this.groupBox7.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -2498,6 +2657,19 @@
         private System.Windows.Forms.Timer graph_clock;
         private LiveCharts.WinForms.CartesianChart Speed_Chart;
         private LiveCharts.WinForms.CartesianChart MotorCurrent_Chart;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.Button Graph1Minute_Button;
+        private System.Windows.Forms.Button Graph5Minute_Button;
+        private System.Windows.Forms.Button Graph10Minute_Button;
+        private System.Windows.Forms.Button Graph15Minute_Button;
+        private System.Windows.Forms.Button GraphInf_Button;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button GraphReset_Button;
+        private System.Windows.Forms.Label label86;
+        private System.Windows.Forms.Label RFID_Label;
+        private System.Windows.Forms.Label label88;
+        private System.Windows.Forms.ComboBox ComboBoxPilotNumber;
     }
 }
 
