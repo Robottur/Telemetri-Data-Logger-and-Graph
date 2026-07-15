@@ -40,6 +40,7 @@ namespace Telemetri_Data_Logger_and_Graph
         
         //StreamWriter objStreamWriter;
         string FilePath;
+        private System.IO.StreamWriter csvWriter;   // CSV telemetry log, open while connected
 
         #region Methods
 
@@ -823,6 +824,15 @@ namespace Telemetri_Data_Logger_and_Graph
                 //graphstarttime = DateTime.Now
                 graph_clock.Start();
 
+                // Start a new CSV telemetry log for this connection session.
+                string logDir = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Log");
+                System.IO.Directory.CreateDirectory(logDir);
+                string csvPath = System.IO.Path.Combine(logDir,
+                    "telemetry_" + System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".csv");
+                csvWriter = new System.IO.StreamWriter(csvPath, false);
+                csvWriter.AutoFlush = true;
+                csvWriter.WriteLine(CsvHeader());
+
             }
             catch(Exception err)
             {
@@ -844,6 +854,9 @@ namespace Telemetri_Data_Logger_and_Graph
                 ButtonDisconnect.Enabled = false;
                 ButtonScanPort.Enabled = true;
                 graph_clock.Stop();
+
+                // Close the CSV telemetry log for this session.
+                if (csvWriter != null) { csvWriter.Close(); csvWriter = null; }
             }
 
         }
@@ -894,6 +907,9 @@ namespace Telemetri_Data_Logger_and_Graph
         {
             var now = System.DateTime.Now;
 
+            // Append one CSV row (timestamp + full telemetry snapshot) every tick.
+            if (csvWriter != null) csvWriter.WriteLine(CsvRow(now));
+
             SpeedValues.Add(new MeasureModel
             {
                 DateTime = now,
@@ -911,6 +927,27 @@ namespace Telemetri_Data_Logger_and_Graph
             //Maksimum 10000 tane veri tutacak şekilde ayarlandı
             if (SpeedValues.Count > 10000) SpeedValues.RemoveAt(0);
             if (MotorCurrent_Values.Count > 10000) MotorCurrent_Values.RemoveAt(0);
+        }
+
+        // CSV header: "Timestamp" plus every telemetry channel name (reflected from DataClass).
+        private string CsvHeader()
+        {
+            var cols = new System.Collections.Generic.List<string> { "Timestamp" };
+            foreach (var f in typeof(DataClass).GetFields())
+                cols.Add(f.Name);
+            return string.Join(",", cols);
+        }
+
+        // CSV data row: timestamp + a snapshot of every telemetry channel's current value.
+        private string CsvRow(System.DateTime timestamp)
+        {
+            var vals = new System.Collections.Generic.List<string>
+            {
+                timestamp.ToString("yyyy-MM-dd HH:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture)
+            };
+            foreach (var f in typeof(DataClass).GetFields())
+                vals.Add(System.Convert.ToString(f.GetValue(Data), System.Globalization.CultureInfo.InvariantCulture));
+            return string.Join(",", vals);
         }
         /*
         private void Axis_RangeChanged(LiveCharts.Events.RangeChangedEventArgs eventArgs)

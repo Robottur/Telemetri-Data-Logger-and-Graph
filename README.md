@@ -31,8 +31,10 @@ protocol, and a dashboard that had to be readable at a glance during a race.
 
 ## What it does
 
+Decodes and displays **90 telemetry channels** in real time from a single radio link:
+
 - **Receives telemetry over LoRa** through a serial (COM) port and decodes it in real time.
-- **Battery pack monitoring** — up to **32 cell voltages** (across four BMS banks) and
+- **Battery pack monitoring** — **32 cell voltages** (across four BMS banks) and
   **30 pack temperatures**.
 - **Power & drivetrain** — battery/PV energy, current and voltage, vehicle speed,
   cabin temperature, and computed motor current.
@@ -41,8 +43,17 @@ protocol, and a dashboard that had to be readable at a glance during a race.
 - **Component temperatures** — MPPTs, motors, and PV, plus a pilot‑warning flag.
 - **Live graphs** — scrolling Motor Speed and Motor Current charts with selectable
   time windows (1 / 5 / 10 / 15 min / infinite) and a reset.
-- **Data logging** — records incoming data to a timestamped `.txt` log file.
+- **CSV data logging** — while connected, every telemetry channel is logged to a
+  timestamped **`.csv`** file (see below), ready for analysis in Excel / pandas.
 - **Responsive UI** — the whole dashboard auto‑scales to fill any window size.
+
+### Data logging (CSV)
+
+On **Connect**, the app opens a new file `Log/telemetry_YYYY-MM-DD_HH-MM-SS.csv` next to
+the executable and writes a header row of all channel names. It then appends one row every
+**500 ms** — a `Timestamp` column followed by all **90 telemetry channels** (91 columns
+total) — and closes the file on **Disconnect**. Values use invariant formatting (`.` decimal
+separator), so the files open cleanly in any spreadsheet or data tool.
 
 ---
 
@@ -137,9 +148,9 @@ works well and is auto‑detected by the test sender.
 
 ## Notes
 
-- Some in‑code comments and a few field labels are in Turkish (the team's working
-  language) — e.g. *Enlem* (latitude), *Boylam* (longitude), *GPS Hız* (GPS speed),
-  *GPS Yükseklik* (GPS altitude), *Pilot Uyarı* (pilot warning).
+- The user interface is fully in **English**. Some of the original **source‑code
+  comments** are still in Turkish (the team's working language) and are left as‑is as
+  part of the project's history.
 - The custom CRC is intentionally simple (modulo‑256 additive) — it matched what the
   car's radio firmware produced and was enough to reject corrupted frames over the link.
 
