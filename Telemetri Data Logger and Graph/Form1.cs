@@ -19,7 +19,16 @@ namespace Telemetri_Data_Logger_and_Graph
         int rf_id;
         string PilotNumber;
         int axis_interval;
-        
+
+        // --- Runtime proportional auto-scaling: keeps every control filling the
+        // window as it is resized/maximized (records the original layout once,
+        // then rescales bounds + fonts by the client-size ratio on every Resize).
+        private readonly System.Collections.Generic.Dictionary<Control, System.Drawing.RectangleF> _origBounds
+            = new System.Collections.Generic.Dictionary<Control, System.Drawing.RectangleF>();
+        private readonly System.Collections.Generic.Dictionary<Control, float> _origFontSize
+            = new System.Collections.Generic.Dictionary<Control, float>();
+        private System.Drawing.Size _origClientSize;
+
 
 
         public ChartValues<MeasureModel> SpeedValues { get; set; }
@@ -713,6 +722,7 @@ namespace Telemetri_Data_Logger_and_Graph
         public Form1()
         {
             InitializeComponent();
+            InitAutoScale(); // capture the design-size layout before the window is shown/resized
         }
 
         private void Form1_Load_1(object sender, EventArgs e)
@@ -735,6 +745,58 @@ namespace Telemetri_Data_Logger_and_Graph
             FilePath += @"\Log\" + yy + "." + mn + "." + dy + ".txt";
         }
 
+        // Record every control's original bounds + font size so the layout can be
+        // scaled proportionally to whatever size the window is stretched to.
+        private void InitAutoScale()
+        {
+            _origClientSize = this.ClientSize;
+            StoreLayout(this);
+            this.Resize += Form1_AutoScale;
+            this.Shown += Form1_AutoScale; // apply once after the window is shown (handles exist)
+        }
+
+        private void StoreLayout(Control parent)
+        {
+            foreach (Control c in parent.Controls)
+            {
+                _origBounds[c] = new System.Drawing.RectangleF(c.Left, c.Top, c.Width, c.Height);
+                _origFontSize[c] = c.Font.Size;
+                if (c.HasChildren) StoreLayout(c);
+            }
+        }
+
+        private void Form1_AutoScale(object sender, EventArgs e)
+        {
+            if (!this.IsHandleCreated) return;
+            if (_origClientSize.Width <= 0 || _origClientSize.Height <= 0) return;
+            float xRatio = (float)this.ClientSize.Width / _origClientSize.Width;
+            float yRatio = (float)this.ClientSize.Height / _origClientSize.Height;
+            this.SuspendLayout();
+            ApplyScale(this, xRatio, yRatio);
+            this.ResumeLayout();
+        }
+
+        private void ApplyScale(Control parent, float xRatio, float yRatio)
+        {
+            foreach (Control c in parent.Controls)
+            {
+                System.Drawing.RectangleF b;
+                if (_origBounds.TryGetValue(c, out b))
+                {
+                    c.Bounds = new System.Drawing.Rectangle(
+                        (int)System.Math.Round(b.Left * xRatio),
+                        (int)System.Math.Round(b.Top * yRatio),
+                        (int)System.Math.Round(b.Width * xRatio),
+                        (int)System.Math.Round(b.Height * yRatio));
+                    // scale fonts by the smaller ratio so text keeps its aspect
+                    float newSize = _origFontSize[c] * System.Math.Min(xRatio, yRatio);
+                    if (newSize < 1f) newSize = 1f;
+                    c.Font = new System.Drawing.Font(c.Font.FontFamily, newSize, c.Font.Style);
+                }
+                if (c.HasChildren) ApplyScale(c, xRatio, yRatio);
+            }
+        }
+
         private void ButtonScanPort_Click(object sender, EventArgs e)
         {
             ComboBoxPort.Items.Clear();
@@ -754,6 +816,7 @@ namespace Telemetri_Data_Logger_and_Graph
                 serialPort1.Open();
 
                 LabelStatus.Text = "Status: Connected";
+                PictureBoxConnectionStatue.Image = Properties.Resources.green;
                 ButtonConnect.Enabled = false;
                 ButtonDisconnect.Enabled = true;
                 ButtonScanPort.Enabled = false;
@@ -776,6 +839,7 @@ namespace Telemetri_Data_Logger_and_Graph
                 serialPort1.Close();
 
                 LabelStatus.Text = "Status: Disconnected";
+                PictureBoxConnectionStatue.Image = Properties.Resources.red;
                 ButtonConnect.Enabled = true;
                 ButtonDisconnect.Enabled = false;
                 ButtonScanPort.Enabled = true;

@@ -1022,8 +1022,8 @@
             this.groupBox5.Controls.Add(this.RFID_Label);
             this.groupBox5.Controls.Add(this.label88);
             this.groupBox5.Controls.Add(this.BattTemp30_Label);
-            this.groupBox5.Controls.Add(this.label3);
-            this.groupBox5.Controls.Add(this.Data_Time_Label);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.Data_Time_Label);
             this.groupBox5.Controls.Add(this.BattTemp29_Label);
             this.groupBox5.Controls.Add(this.BattTemp28_Label);
             this.groupBox5.Controls.Add(this.BattTemp27_Label);
@@ -1102,7 +1102,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 451);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(42, 540);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 132;
@@ -1111,11 +1112,13 @@
             // Data_Time_Label
             // 
             this.Data_Time_Label.AutoSize = true;
-            this.Data_Time_Label.Location = new System.Drawing.Point(60, 451);
+            this.Data_Time_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Data_Time_Label.ForeColor = System.Drawing.Color.MediumBlue;
+            this.Data_Time_Label.Location = new System.Drawing.Point(42, 558);
             this.Data_Time_Label.Name = "Data_Time_Label";
             this.Data_Time_Label.Size = new System.Drawing.Size(35, 13);
             this.Data_Time_Label.TabIndex = 131;
-            this.Data_Time_Label.Text = "label3";
+            this.Data_Time_Label.Text = "-";
             // 
             // BattTemp29_Label
             // 
@@ -1797,7 +1800,7 @@
             this.groupBox6.Size = new System.Drawing.Size(163, 131);
             this.groupBox6.TabIndex = 115;
             this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "groupBox6";
+            this.groupBox6.Text = "Power && Speed";
             // 
             // Motor_Current_Label
             // 
@@ -1850,7 +1853,7 @@
             this.groupBox7.Size = new System.Drawing.Size(163, 192);
             this.groupBox7.TabIndex = 116;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "groupBox7";
+            this.groupBox7.Text = "IMU && GPS";
             // 
             // GPS_Height_Label
             // 
@@ -1877,7 +1880,7 @@
             this.label72.Name = "label72";
             this.label72.Size = new System.Drawing.Size(47, 13);
             this.label72.TabIndex = 126;
-            this.label72.Text = "GPS Hız";
+            this.label72.Text = "GPS Speed";
             // 
             // label73
             // 
@@ -1886,7 +1889,7 @@
             this.label73.Name = "label73";
             this.label73.Size = new System.Drawing.Size(78, 13);
             this.label73.TabIndex = 127;
-            this.label73.Text = "GPS Yükseklik";
+            this.label73.Text = "GPS Altitude";
             // 
             // Longitude_Label
             // 
@@ -1913,7 +1916,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 122;
-            this.label5.Text = "Enlem";
+            this.label5.Text = "Latitude";
             // 
             // label71
             // 
@@ -1922,7 +1925,7 @@
             this.label71.Name = "label71";
             this.label71.Size = new System.Drawing.Size(41, 13);
             this.label71.TabIndex = 123;
-            this.label71.Text = "Boylam";
+            this.label71.Text = "Longitude";
             // 
             // AccelZ_Label
             // 
@@ -2109,7 +2112,7 @@
             this.groupBox8.Size = new System.Drawing.Size(163, 132);
             this.groupBox8.TabIndex = 130;
             this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "groupBox8";
+            this.groupBox8.Text = "Temperatures";
             // 
             // PV_T1_Label
             // 
@@ -2235,7 +2238,7 @@
             this.label110.Name = "label110";
             this.label110.Size = new System.Drawing.Size(54, 13);
             this.label110.TabIndex = 99;
-            this.label110.Text = "Pilot Uyarı";
+            this.label110.Text = "Pilot Warning";
             // 
             // label111
             // 
@@ -2361,7 +2364,7 @@
             this.groupBox2.Size = new System.Drawing.Size(573, 500);
             this.groupBox2.TabIndex = 143;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "Live Graphs";
             // 
             // GraphReset_Button
             // 
@@ -2419,7 +2422,7 @@
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1336, 667);
             this.Controls.Add(this.ComboBoxPilotNumber);
             this.Controls.Add(this.label86);
@@ -2431,7 +2434,7 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Solaris Telemetry — Data Logger & Graph";
             this.Load += new System.EventHandler(this.Form1_Load_1);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
