@@ -44,12 +44,10 @@ restore() {
 build() {
   [ -d "$PKGDIR/LiveCharts.0.9.7" ] || restore
   echo ">> Building (Release)"
-  wine "$MSBUILD" "$CSPROJ" /p:Configuration=Release /p:Platform=AnyCPU /v:minimal /nologo
+  local wcsproj; wcsproj="$(winepath -w "$CSPROJ")"
+  wine "$MSBUILD" "$wcsproj" /p:Configuration=Release /p:Platform=AnyCPU /v:minimal /nologo
   echo ">> Built: $EXE"
-}  [ -d "$PKGDIR/LiveCharts.0.9.7" ] || restore
-  echo ">> Building (Release)"
-  wine "$MSBUILD" "$CSPROJ" /p:Configuration=Release /p:Platform=AnyCPU /v:minimal /nologo
-  echo ">> Built: $EXE"
+}
 
 run() {
   [ -f "$EXE" ] || build

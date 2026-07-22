@@ -728,8 +728,7 @@ namespace Telemetri_Data_Logger_and_Graph
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
-            string[] ports = SerialPort.GetPortNames();
-            ComboBoxPort.Items.AddRange(ports);
+            PopulatePorts();
 
             ButtonDisconnect.Enabled = false;
             Charts_Initiliaze();
@@ -800,9 +799,40 @@ namespace Telemetri_Data_Logger_and_Graph
 
         private void ButtonScanPort_Click(object sender, EventArgs e)
         {
+            PopulatePorts();
+        }
+
+        // Fills the port combo box with the available serial ports, removing
+        // duplicates and sorting numerically (COM2 before COM10).
+        private void PopulatePorts()
+        {
             ComboBoxPort.Items.Clear();
-            string[] ports = SerialPort.GetPortNames();
-            ComboBoxPort.Items.AddRange(ports);
+
+            List<string> unique = new List<string>();
+            foreach (string port in SerialPort.GetPortNames())
+            {
+                if (!unique.Contains(port))
+                    unique.Add(port);
+            }
+
+            unique.Sort(delegate(string a, string b)
+            {
+                int na = PortNumber(a), nb = PortNumber(b);
+                if (na != nb) return na.CompareTo(nb);
+                return string.Compare(a, b, StringComparison.OrdinalIgnoreCase);
+            });
+
+            ComboBoxPort.Items.AddRange(unique.ToArray());
+        }
+
+        // Extracts the trailing number from a port name (e.g. "COM10" -> 10);
+        // returns int.MaxValue when no number is present so it sorts last.
+        private static int PortNumber(string port)
+        {
+            int i = 0;
+            while (i < port.Length && !char.IsDigit(port[i])) i++;
+            int n;
+            return int.TryParse(port.Substring(i), out n) ? n : int.MaxValue;
         }
 
         private void ButtonConnect_Click(object sender, EventArgs e)
