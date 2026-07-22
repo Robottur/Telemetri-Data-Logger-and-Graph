@@ -9,7 +9,7 @@ Built for **Solaris**, a university solar car team that competes in internationa
 solar‑car races. This is the software the crew watches in the pit while the car is
 on track — battery health, motor load, orientation, and GPS position at a glance.
 
-![Screenshot of the telemetry dashboard](docs/screenshot.png)
+![Screenshot of the telemetry dashboard](docs/solaris-telemetry.png)
 
 ---
 
@@ -158,4 +158,4 @@ works well and is auto‑detected by the test sender.
 
 ## Author
 
-Built for the Solaris solar racing team, April 2022.
+Co-developed with a teammate for the Solaris solar racing team, April 2022.
