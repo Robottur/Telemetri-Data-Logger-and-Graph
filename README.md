@@ -9,7 +9,7 @@ Built for **Solaris**, a university solar car team that competes in internationa
 solar‑car races. This is the software the crew watches in the pit while the car is
 on track — battery health, motor load, orientation, and GPS position at a glance.
 
-![Screenshot of the telemetry dashboard](docs/solaris-telemetry.png)
+![Screenshot of the telemetry dashboard](docs/solaris-telemetry.gif)
 
 ---
 
